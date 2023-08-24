@@ -44,5 +44,5 @@
     </div>
 </footer>
 <div class="footer text-white font-thin p-5 bg-slate-950 w-full">
-    <h1>&#169; UNIVERSITAS BINA SARANA INFORMATIKA</h1>
+    <p>&#169; UNIVERSITAS BINA SARANA INFORMATIKA</p>
 </div>

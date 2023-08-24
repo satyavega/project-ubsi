@@ -27,32 +27,6 @@
             @include('home.linkBoxes')
         </div>
     </div>
-    {{-- <section class="pb-56">
-        <div class="pt-10 flex justify-end relative">
-            <div class="w-60 h-20 absolute z-10 bg-slate-950"></div>
-            <div class="w-48 h-16 mr-16 mt-9 absolute bg-cyan-500"></div>
-        </div>
-        <div class="flex mt-10 relative justify-between">
-            @include('home.leftImage')
-            @include('home.titleWithDescripton', [
-                'title' => $titles[1],
-                'description' => $descriptions[1],
-            ])
-        </div>
-    </section>
-    <section class="relative pb-56">
-        <div class="pt-10 flex justify-start relative">
-            <div class="w-60 h-20 absolute z-10 bg-slate-950"></div>
-            <div class="w-48 h-16 mr-16 mt-9 absolute bg-cyan-500"></div>
-        </div>
-        <div class="flex mt-10 justify-between">
-            @include('home.titleWithDescripton', [
-                'title' => $titles[2],
-                'description' => $descriptions[2],
-            ])
-            @include('home.rightImage')
-        </div>
-    </section> --}}
     @include('partials.portalNews')
     @include('partials.footer')
 </body>
