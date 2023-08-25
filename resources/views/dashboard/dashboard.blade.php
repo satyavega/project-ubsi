@@ -26,6 +26,7 @@
                 </div>
             </div> --}}
             <div class="bg-[#00A39E] p-5">Total User</div>
+            <div class="bg-[#00A39E] p-5">Total Mantan</div>
         </div>
     </div>
 @endsection
