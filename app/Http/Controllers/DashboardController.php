@@ -95,7 +95,7 @@ class DashboardController extends Controller
         'body' => 'required',
         'category_id' => 'required|numeric',
         'tag_ids.*' => 'required|numeric',
-        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
     ]);
 
     // Upload image

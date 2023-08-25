@@ -20,50 +20,32 @@
     <div class="grid grid-cols-3 gap-10">
         <div class="border w-min border-gray-400">
             <div class="w-[400px] h-[250px]">
-                <img class="w-full h-full object-cover" src="https://picsum.photos/400/250" alt="">
+                @foreach ($posts as $post)
+                    @php
+                        $imagePath = '';
+                    @endphp
+                    @php
+                        $imagePath = public_path('posts/' . $post->image);
+                    @endphp
+                    @if ($post->image)
+                        <div class="overflow-hidden rounded-md w-full">
+                            <img class="object-cover max-h-[450px] w-full shadow-xl rounded-md max-sm:w-11/12"
+                                src="{{ asset($post->image) }}" alt="{{ $post->category->name }}">
+                        </div>
+                    @else
+                        <img class="object-cover shadow-xl rounded-md w-full max-sm:w-11/12"
+                            src="https://picsum.photos/1200/400" alt="{{ $post->category->name }}">
+                    @endif
             </div>
             <div class="flex flex-col px-5 py-3">
                 <div class="border-b flex flex-col gap-2 py-5  border-gray-400">
-                    <p>Prestasi, Berita</p>
-                    <h1 class="text-xl text-slate-900">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
-                    <p class="text-lg leading-6 text-slate-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laudantium,
-                        molestiae ex
-                        praesentium maiores magnam dignissimos enim. Dicta, reprehenderit veniam. Ipsa.</p>
+                    <p>{{ $post->category->name }}</p>
+                    <h1 class="text-xl text-slate-900">{{ $post->title }}</h1>
+                    <p class="text-lg leading-6 text-slate-700">{{ $post->excerpt }}</p>
                 </div>
-                <p class="pt-3">12/12/2023</p>
-            </div>
-        </div>
-        <div class="border w-min border-gray-400">
-            <div class="w-[400px] h-[250px]">
-                <img class="w-full h-full object-cover" src="https://picsum.photos/400/250" alt="">
-            </div>
-            <div class="flex flex-col px-5 py-3">
-                <div class="border-b flex flex-col gap-2 py-5  border-gray-400">
-                    <p>Prestasi, Berita</p>
-                    <h1 class="text-xl text-slate-900">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
-                    <p class="text-lg leading-6 text-slate-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laudantium,
-                        molestiae ex
-                        praesentium maiores magnam dignissimos enim. Dicta, reprehenderit veniam. Ipsa.</p>
-                </div>
-                <p class="pt-3">12/12/2023</p>
-            </div>
-        </div>
-        <div class="border w-min border-gray-400">
-            <div class="w-[400px] h-[250px]">
-                <img class="w-full h-full object-cover" src="https://picsum.photos/400/250" alt="">
-            </div>
-            <div class="flex flex-col px-5 py-3">
-                <div class="border-b flex flex-col gap-2 py-5  border-gray-400">
-                    <p>Prestasi, Berita</p>
-                    <h1 class="text-xl text-slate-900">Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
-                    <p class="text-lg leading-6 text-slate-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Laudantium,
-                        molestiae ex
-                        praesentium maiores magnam dignissimos enim. Dicta, reprehenderit veniam. Ipsa.</p>
-                </div>
-                <p class="pt-3">12/12/2023</p>
+                <p class="pt-3"> {{ $post->created_at->diffForHumans() }}
+                </p>
+                @endforeach
             </div>
         </div>
     </div>

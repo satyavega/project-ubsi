@@ -18,7 +18,7 @@
         <div class="w-48 h-16 ml-16 mt-9 absolute bg-cyan-500"></div>
     </div>
     <div class="flex mt-10 relative justify-between">
-        @include('home.titleWithDescripton', ['title' => $titles[0], 'description' => $descriptions[0]])
+        @include('home.titleWithDescripton')
         @include('home.rightImage')
     </div>
     <div class="relative mt-44">

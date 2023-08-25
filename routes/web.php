@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Post;
@@ -19,21 +20,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home', [
-        'descriptions' => ['Lorem ipsum dolor sit amet consectetur adipisicing elit.Accusantiumratione quiaquasi quibusdam
-        laborum, illo beatae tempora, hic ipsa laudantium saepe cupiditate harum, deleniti quos dolor
-        dolorum
-        commodi sint amet magni eos rerum eius reiciendis maiores facere. Illum, necessitatibus neque!', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Accusantiumratione quiaquasi quibusdam
-        laborum, illo beatae tempora, hic ipsa laudantium saepe cupiditate harum, deleniti quos dolor
-        dolorum
-        commodi sint amet magni eos rerum eius reiciendis maiores facere. Illum, necessitatibus neque!', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Accusantiumratione quiaquasi quibusdam
-        laborum, illo beatae tempora, hic ipsa laudantium saepe cupiditate harum, deleniti quos dolor
-        dolorum
-        commodi sint amet magni eos rerum eius reiciendis maiores facere. Illum, necessitatibus neque!'],
-        'titles' => ['Pendidikan', 'Penelitian', 'Pengabdian'],
-    ]);
-});
+Route::get('/', [HomeController::class , 'index']);
 
 Route::get('pendidikan', function () {
     return view('pages.pendidikan', [
