@@ -11,7 +11,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Tag;
-
 use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
@@ -87,43 +86,43 @@ class DashboardController extends Controller
     //     }
     // }
     public function store(Request $request): RedirectResponse
-{
-    $validatedData = $request->validate([
-        'title' => 'required|min:8|max:50',
-        'slug' => '',
-        'excerpt' => 'required|min:8',
-        'body' => 'required',
-        'category_id' => 'required|numeric',
-        'tag_ids.*' => 'required|numeric',
-        'image' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|min:8|max:50',
+            'slug' => '',
+            'excerpt' => 'required|min:8',
+            'body' => 'required',
+            'category_id' => 'required|numeric',
+            'tag_ids.*' => 'required|numeric',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
+        ]);
 
-    // Upload image
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imagePath = $image->store('posts', 'public');
-    } else {
-        $imagePath = null;
+        // Upload image
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $image->store('posts', 'public');
+        } else {
+            $imagePath = null;
+        }
+
+        // Create post
+        $user = Auth::user(); // Mengambil pengguna yang sedang masuk
+        $post = Post::create([
+            'title' => $validatedData['title'],
+            'slug' => $validatedData['slug'],
+            'excerpt' => $validatedData['excerpt'],
+            'body' => $validatedData['body'],
+            'category_id' => $validatedData['category_id'],
+            'image' => $imagePath ? '/storage/' . $imagePath : null,
+            'user_id' => $user->id, // Menyertakan user_id dari pengguna yang sedang masuk
+        ]);
+
+
+        // Attach tags
+        $post->tags()->attach($validatedData['tag_ids']);
+
+        return redirect('/dashboard/posts')->with('success', 'Post has been added!');
     }
-
-    // Create post
-    $user = Auth::user(); // Mengambil pengguna yang sedang masuk
-    $post = Post::create([
-        'title' => $validatedData['title'],
-        'slug' => $validatedData['slug'],
-        'excerpt' => $validatedData['excerpt'],
-        'body' => $validatedData['body'],
-        'category_id' => $validatedData['category_id'],
-        'image' => $imagePath ? '/storage/' . $imagePath : null,
-        'user_id' => $user->id, // Menyertakan user_id dari pengguna yang sedang masuk
-]);
-
-
-    // Attach tags
-    $post->tags()->attach($validatedData['tag_ids']);
-
-    return redirect('/dashboard/posts')->with('success', 'Post has been added!');
-}
 
 
     /**
