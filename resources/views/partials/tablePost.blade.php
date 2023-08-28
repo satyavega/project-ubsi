@@ -62,10 +62,7 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="text-sm leading-5 text-gray-900">
                                     @foreach ($post->tags as $index => $tag)
-                                        <span>{{ $tag->name }}</span>
-                                        @if ($index < count($post->tags) - 1)
-                                            ,
-                                        @endif
+                                        {{ $tag->name }}
                                     @endforeach
                                     <span>.</span>
                                 </div>
