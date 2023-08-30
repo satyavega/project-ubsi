@@ -12,8 +12,6 @@
                         <h1>Artikel</h1>
                         <p class="text-gray-300">Total Artikel : <span class="font-bold">{{ $posts->count() }}</span></p>
                     </span>
-                    {{-- <x-phosphor-article-thin class="w-1/4 h-1/4" /> --}}
-                    <x-gmdi-article-o />
                 </div>
             </div>
             {{-- <div class="bg-[#0E6BA8] p-5">
