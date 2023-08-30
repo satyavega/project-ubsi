@@ -1,7 +1,7 @@
 <section class="px-5 flex flex-col gap-5">
     <div class="flex justify-between">
         <div class="flex h-fit items-center gap-2">
-            <h1 class="text-4xl font-bold">Berita Terkini</h1>
+            <h1 class="text-4xl font-bold">BSI News</h1>
             <div class="w-80 h-[2px] mt-3 bg-cyan-500"></div>
         </div>
         <a href="/news"
