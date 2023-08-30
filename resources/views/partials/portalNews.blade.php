@@ -19,7 +19,7 @@
     </div>
     <div class="grid grid-cols-3 gap-10">
         @foreach ($posts as $post)
-            <div class="border w-min border-gray-400">
+            <div class="border border-gray-400 rounded-t-md overflow-hidden">
                 @php
                     $imagePath = '';
                 @endphp
@@ -27,9 +27,9 @@
                     $imagePath = public_path('posts/' . $post->image);
                 @endphp
                 @if ($post->image)
-                    <div class="overflow-hidden max-h-[250px] w-[400px] rounded-md">
-                        <img class="object-cover w-full shadow-xl rounded-md max-sm:w-11/12"
-                            src="{{ asset($post->image) }}" alt="{{ $post->category->name }}">
+                    <div class="overflow-hidden max-h-[250px] w-[400px]">
+                        <img class="object-cover w-full shadow-xl max-sm:w-11/12" src="{{ asset($post->image) }}"
+                            alt="{{ $post->category->name }}">
                     </div>
                 @else
                     <img class="object-cover shadow-xl rounded-md w-full max-sm:w-11/12"
