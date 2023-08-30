@@ -62,4 +62,7 @@ Route::get('check_slug', function () {
     return response()->json(['slug' => $slug]);
 });
 
+Route::view('struktur-organisasi', 'pages.organisasi', ['title' => 'Organisasi']);
+Route::view('proker-organisasi', 'pages.prokerOrganisasi', ['title' => 'Proker Organisasi']);
+
 require __DIR__ . '/auth.php';

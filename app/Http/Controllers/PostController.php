@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $title = "All Posts";
+        $title = "News";
         $category = request('category');
         $author = request('author');
         $latestPosts = Post::with(['author', 'category'])->latest()->take(4)->get();

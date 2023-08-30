@@ -6,8 +6,7 @@
         </div>
         <p class="leading-relaxed text-slate-900 text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Velit, assumenda.</p>
-        <a href="/{{ Str::lower($title) }}"
-            class="btn uppercase text-lg bg-slate-900 hover:bg-slate-950 text-white w-max">selengkapnya
+        <a href="/pendidikan" class="btn uppercase text-lg bg-slate-900 hover:bg-slate-950 text-white w-max">selengkapnya
             <span class="hover:pl-3 duration-150 transition-all ease-in-out">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">

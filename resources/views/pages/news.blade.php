@@ -36,9 +36,13 @@
             </div>
         </div>
         <div class="flex justify-between py-10">
-            <div class="flex h-fit items-center gap-2">
-                <h1 class="text-4xl font-bold">Berita Terbaru</h1>
-                <div class="w-40 h-[2px] mt-3 bg-cyan-500"></div>
+            <div class="flex gap-3 flex-col">
+                <div class="flex h-fit items-center gap-2">
+                    <h1 class="text-slate-700 text-4xl font-semibold">Berita Terbaru</h1>
+                    <div class="w-60 h-[2px] mt-3 bg-cyan-500"></div>
+                </div>
+                <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
+                        class="text-black">{{ Str::title($title) }}</span></p>
             </div>
             <a href="news"
                 class="border-b-2 max-md:hidden border-y-slate-600 hover:text-slate-950 font-semibold hover:border-slate-950 uppercase text-xl gap-1 flex items-center text-slate-600 w-max">lihat
