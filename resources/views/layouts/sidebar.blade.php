@@ -52,14 +52,14 @@
                         <span class="mx-3">My Posts</span>
                     </a>
                 </nav>
-                @can('admin')
+                @if (auth()->user() && auth()->user()->role === 'admin')
                     <div>
                         <h6 class="uppercase px-6 text-gray-400">Administrator</h6>
                         <ul class="mt-3">
                             <li>
                                 <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
-                            {{ Request::is('dashboard/categories*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
-                                    href="/dashboard/categories">
+                            {{ Request::is('dashboard/categories/categories*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
+                                    href="/dashboard/categories/categories">
                                     <x-feathericon-grid />
 
                                     <span class="mx-3">Post Categories</span>
@@ -67,6 +67,6 @@
                             </li>
                         </ul>
                     </div>
-                @endcan
+                @endif
             </div>
         </div>

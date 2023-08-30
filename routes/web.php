@@ -1,13 +1,16 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-
+use GuzzleHttp\Middleware;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,5 +67,12 @@ Route::get('check_slug', function () {
 
 Route::view('struktur-organisasi', 'pages.organisasi', ['title' => 'Organisasi']);
 Route::view('proker-organisasi', 'pages.prokerOrganisasi', ['title' => 'Proker Organisasi']);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('/dashboard/categories/categories', AdminCategoryController::class, [
+        'except' => ['show']
+    ]);
+});
+
 
 require __DIR__ . '/auth.php';
