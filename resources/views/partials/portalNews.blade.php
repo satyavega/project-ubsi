@@ -4,7 +4,7 @@
             <h1 class="text-4xl font-bold">Berita Terkini</h1>
             <div class="w-80 h-[2px] mt-3 bg-cyan-500"></div>
         </div>
-        <a href="news"
+        <a href="/news"
             class="border-b-2 border-y-slate-600 hover:text-slate-950 font-semibold hover:border-slate-950 uppercase text-xl gap-1 flex items-center text-slate-600 w-max">lihat
             berita
             lainnya

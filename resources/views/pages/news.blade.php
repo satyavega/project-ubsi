@@ -113,7 +113,7 @@
                                 <a href="">
                                     <div
                                         class="bg-red-500 w-[150px] h-[100px] {{ $iteration === 0 ? 'w-full h-[200px]' : '' }}">
-                                        <img class="object-cover w-full h-full" src="https://picsum.photos/200/150"
+                                        <img class="object-cover w-full h-full" src="{{ asset($post->image) }}"
                                             alt="">
                                     </div>
                                 </a>
