@@ -14,22 +14,12 @@
                     </span>
                 </div>
             </div>
-            {{-- <div class="bg-[#0E6BA8] p-5">
-                <div>
-                    <span>
-                        <h1>Kategori</h1>
-                        <p class="text-gray-300">Total Kategori : <span class="font-bold">{{ $categories->count() }}</span>
-                        </p>
-                    </span>
-
-                </div>
-            </div> --}}
             @if (auth()->user() && auth()->user()->role === 'admin')
                 <div class="bg-[#00A39E] p-5">
                     <div class="flex justify-between">
                         <span>
                             <h1>User</h1>
-                            <p class="text-gray-300">Total User : <span class="font-bold">{{ $posts->count() }}</span></p>
+                            <p class="text-gray-300">Total User : <span class="font-bold">{{ $users->count() }}</span></p>
                         </span>
                         <x-feathericon-user class="w-1/4 h-1/4" />
                     </div>
