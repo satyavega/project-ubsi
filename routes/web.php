@@ -43,13 +43,6 @@ Route::get('news/{post:slug}', [PostController::class, 'show']);
 
 Route::get('categories', [CategoryController::class, 'index']);
 
-// Route::get('dashboard', function () {
-//     return view('dashboard.dashboard', [
-//         'title' => 'dashboard',
-//         'posts' => Post::where('user_id', auth()->user()->id)->get()
-//     ]);
-// })->middleware('auth')->name('dashboard.dashboard');
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
@@ -75,7 +68,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/dashboard/categories', AdminCategoryController::class, [
         'except' => ['show']
     ]);
+
+    // Anda hanya perlu rute ini untuk mengedit dan mengupdate
+    Route::get('/dashboard/categories/{category:slug}/edit', [AdminCategoryController::class, 'edit'])->name('category.edit');
+    Route::put('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'update'])->name('category.update');
+    Route::delete('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'destroy'])->name('category.destroy');
+
+
 });
+
 
 
 require __DIR__ . '/auth.php';

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+
 
 class DashboardController extends Controller
 {
@@ -30,12 +32,8 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|min:4|max:50',
-            'slug' => '',
-        ]);
+    public function store(Request $request){
+
     }
 
     /**

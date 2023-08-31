@@ -34,14 +34,14 @@
                                     {{-- <a href="/dashboard/categories/{{ $category->slug }}"><x-heroicon-o-eye
                                             class="w-8 h-7 p-1 bg-indigo-600 hover:bg-indigo-900 text-gray-100 rounded-md" />
                                     </a> --}}
-                                    <a href="/dashboard/categories/{{ $category->slug }}/edit"><x-heroicon-m-pencil-square
-                                            class="w-8 h-7 p-1 bg-amber-600 hover:bg-amber-900 text-gray-100 rounded-md" />
-
-                                    </a>
                                     <form action="/dashboard/categories/{{ $category->slug }}" method="post">
-                                        @method('delete')
+                                        <a href="{{ route('category.edit', ['category' => $category->slug]) }}"><x-heroicon-m-pencil-square
+                                                class="w-8 h-7 p-1 bg-amber-600 hover:bg-amber-900 text-gray-100 rounded-md" />
+
+                                        </a>
                                         @csrf
-                                        <button onclick="return confirm('Are you sure?')"><svg
+                                        @method('delete')
+                                        <button onclick="return confirm('Are you sure?')" type="submit"><svg
                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                 fill="currentColor"
                                                 class="w-8 h-7 p-1 bg-red-600 hover:bg-red-900 text-gray-100 rounded-md">
