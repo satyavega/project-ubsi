@@ -24,16 +24,18 @@
 
                 </div>
             </div> --}}
-            <div class="bg-[#00A39E] p-5">
-                <div class="flex justify-between">
-                    <span>
-                        <h1>User</h1>
-                        <p class="text-gray-300">Total User : <span class="font-bold">{{ $posts->count() }}</span></p>
-                    </span>
-                    <x-feathericon-user class="w-1/4 h-1/4" />
+            @if (auth()->user() && auth()->user()->role === 'admin')
+                <div class="bg-[#00A39E] p-5">
+                    <div class="flex justify-between">
+                        <span>
+                            <h1>User</h1>
+                            <p class="text-gray-300">Total User : <span class="font-bold">{{ $posts->count() }}</span></p>
+                        </span>
+                        <x-feathericon-user class="w-1/4 h-1/4" />
+                    </div>
                 </div>
-            </div>
-            <div class="bg-[#00A39E] p-5">Total Mantan</div>
+                <div class="bg-[#00A39E] p-5">Total Mantan</div>
+            @endif
         </div>
     </div>
 @endsection

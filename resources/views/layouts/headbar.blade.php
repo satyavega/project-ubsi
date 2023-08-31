@@ -24,25 +24,30 @@
         </div>
         <div class="dropdown dropdown-end">
             {{-- <label tabindex="0" class="btn m-1">Click</label> --}}
-            <button class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
+            <button
+                class="relative block h-8 w-8 border-2 border-blue-400 rounded-full overflow-hidden shadow focus:outline-none">
                 <img class="h-full w-full object-cover" src="https://picsum.photos/32" alt="Your avatar">
             </button>
-            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 rounded-box w-52 shadow-xl bg-white">
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 rounded-box w-52 shadow-xl bg-gray-50 border">
                 <li class="border-b"><a>Hi, {{ Str::title(Auth::user()->name) }}!</a></li>
-                <li><a class=" hover:bg-blue-500">Item 1</a></li>
-                <li>
-                    <form class="px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white" action="/logout"
-                        method="post">
-                        @csrf
-                        <button class="flex gap-2" type="submit">Logout <svg xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                            </svg>
-                        </button>
-                    </form>
-                </li>
+                <div class="pt-4">
+                    <li><a href="/profile"
+                            class="text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">Profile</a>
+                    </li>
+                    <li>
+                        <form class="text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                            action="/logout" method="post">
+                            @csrf
+                            <button class="flex gap-2" type="submit">Logout <svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                    class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+                </div>
             </ul>
         </div>
         {{-- <div x-data="{ dropdownOpen: false }" class="relative">

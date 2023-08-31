@@ -58,8 +58,8 @@
                         <ul class="mt-3">
                             <li>
                                 <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
-                            {{ Request::is('dashboard/categories/categories*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
-                                    href="/dashboard/categories/categories">
+                            {{ Request::is('dashboard/categories*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
+                                    href="/dashboard/categories">
                                     <x-feathericon-grid />
 
                                     <span class="mx-3">Post Categories</span>

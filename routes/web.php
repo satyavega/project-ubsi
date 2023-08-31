@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -42,14 +43,16 @@ Route::get('news/{post:slug}', [PostController::class, 'show']);
 
 Route::get('categories', [CategoryController::class, 'index']);
 
-Route::get('dashboard', function () {
-    return view('dashboard.dashboard', [
-        'title' => 'dashboard',
-        'posts' => Post::where('user_id', auth()->user()->id)->get()
-    ]);
-})->middleware('auth');
-// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::resource('/dashboard/posts', DashboardController::class)->middleware('auth');
+// Route::get('dashboard', function () {
+//     return view('dashboard.dashboard', [
+//         'title' => 'dashboard',
+//         'posts' => Post::where('user_id', auth()->user()->id)->get()
+//     ]);
+// })->middleware('auth')->name('dashboard.dashboard');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -69,7 +72,7 @@ Route::view('struktur-organisasi', 'pages.organisasi', ['title' => 'Organisasi']
 Route::view('proker-organisasi', 'pages.prokerOrganisasi', ['title' => 'Proker Organisasi']);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::resource('/dashboard/categories/categories', AdminCategoryController::class, [
+    Route::resource('/dashboard/categories', AdminCategoryController::class, [
         'except' => ['show']
     ]);
 });

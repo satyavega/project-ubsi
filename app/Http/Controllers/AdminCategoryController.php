@@ -16,7 +16,7 @@ class AdminCategoryController extends Controller
         if(auth()->guest()){
             abort(403);
         }
-        return view('dashboard.categories.index', [
+        return view('dashboard.admin.categories.index', [
             'categories' => Category::all(),
             'title' => 'Category Admin'
         ]);
@@ -27,7 +27,10 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.categories.create', [
+            'title' => 'Create Category',
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
