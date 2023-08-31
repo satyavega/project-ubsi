@@ -19,16 +19,17 @@
             {{-- @include('dashboard.partials.card') --}}
         </div>
         <div class="max-w-2xl min-h-min">
-            <form method="post" action="/dashboard/posts" enctype="multipart/form-data">
+            <form method="post" action="/dashboard/categories/{{ $category->slug }}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="mb-6">
-                    <label for="title" class="block mb-2 text-lg font-medium text-gray-700">Category Name</label>
-                    <input type="text" id="title" name="title" value="{{ old('title') }}"
-                        class="bg-gray-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-transparent @error('title')
+                    <label for="name" class="block mb-2 text-lg font-medium text-gray-700">Category Name</label>
+                    <input type="text" id="name" name="name" value="{{ $category->name }}"
+                        class="bg-gray-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-transparent @error('name')
                             invalid:border-red-500 invalid:text-pink-600 invalid:focus:border-pink-500 invalid:focus:ring-pink-500
                             @enderror"
                         placeholder="Category here" required>
-                    @error('title')
+                    @error('name')
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                             {{ $message }}
                         </span>
@@ -73,7 +74,7 @@
                     <label for="image" class="block mb-2 text-lg font-medium text-gray-700">Image</label>
                     <img class="img-preview w-[50%] h-[150px] mb-5 hidden object-contain" alt="">
                     <input type="file" id="image" name="image"
-                        class="file:active:bg-gray-400 border file:ring-blue-500 file:bg-gray-300 file:px-2 file:rounded-lg file:border-0 file:active:border-blue-500 file:focus:border-blue-500 cursor-pointer file:cursor-pointer active:border-blue-500 focus:border-blue-500 border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 bg-transparent @error('title')
+                        class="file:active:bg-gray-400 border file:ring-blue-500 file:bg-gray-300 file:px-2 file:rounded-lg file:border-0 file:active:border-blue-500 file:focus:border-blue-500 cursor-pointer file:cursor-pointer active:border-blue-500 focus:border-blue-500 border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 bg-transparent @error('name')
                             invalid:border-red-500 invalid:text-pink-600 invalid:focus:border-pink-500 invalid:focus:ring-pink-500
                             @enderror"
                         placeholder="image here" onchange="previewImage()" required>
@@ -132,8 +133,8 @@
                     @enderror
                 </div> --}}
                 <button type="submit"
-                    class="bg-blue-500 mb-5 px-4 rounded-lg active:border-2 border-blue-800 border-opacity-70 text-white text-lg py-3">Create
-                    post</button>
+                    class="bg-blue-500 mb-5 px-4 rounded-lg active:border-2 border-blue-800 border-opacity-70 text-white text-lg py-3">Edit
+                    Category</button>
             </form>
         </div>
     </main>
@@ -158,10 +159,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#title').on('input', function() {
+            $('#name').on('input', function() {
                 console.log('Event input judul terpicu.');
-                var title = $(this).val();
-                var slug = title.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+                var name = $(this).val();
+                var slug = name.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
                 $('#slug').val(slug);
             });
         });
