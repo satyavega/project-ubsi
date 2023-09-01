@@ -10,8 +10,9 @@
                 <div class="flex justify-between">
                     <span>
                         <h1>Artikel</h1>
-                        <p class="text-gray-300">Total Artikel : <span class="font-bold">{{ $posts->count() }}</span></p>
+                        <p class="text-gray-300">Total Artikel : <span class="font-bold">{{ $totalPosts }}</span></p>
                     </span>
+
                 </div>
             </div>
             @if (auth()->user() && auth()->user()->role === 'admin')
@@ -19,8 +20,9 @@
                     <div class="flex justify-between">
                         <span>
                             <h1>User</h1>
-                            <p class="text-gray-300">Total User : <span class="font-bold">{{ $users->count() }}</span></p>
+                            <p class="text-gray-300">Total User : <span class="font-bold">{{ $totalUsers }}</span></p>
                         </span>
+
                         <x-feathericon-user class="w-1/4 h-1/4" />
                     </div>
                 </div>

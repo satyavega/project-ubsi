@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('role');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('posts_count')->default(0); // default 0
+
         });
     }
 

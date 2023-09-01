@@ -75,11 +75,26 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'update'])->name('category.update');
     Route::delete('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'destroy'])->name('category.destroy');
 
+    Route::get('/dashboard', function () {
+        $totalPosts = Post::count();
+        $totalUsers = User::count();
+
+        return view('dashboard.dashboard', [
+            'title' => 'Dashboard',
+            'totalPosts' => $totalPosts,
+            'totalUsers' => $totalUsers, // Mengirim total pengguna ke tampilan
+        ]);
+    });
+
 
     Route::get('dashboard/users', function () {
+        $usersWithPostCount = User::where('role', 'user')
+            ->withCount('posts as posts_count') // Menghitung jumlah posting untuk setiap pengguna
+            ->get();
+
         return view('dashboard.admin.users.index', [
             'title' => 'Users',
-            'users' => User::where('role', 'user')
+            'users' => $usersWithPostCount,
         ]);
     });
 });
