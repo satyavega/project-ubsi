@@ -25,44 +25,55 @@
                 </div>
             </div>
             <div class="flex gap-5 flex-col">
-                <nav>
-                    <a class="flex items-center mt-4 py-2 px-6 hover:bg-gray-700 hover:text-gray-100
+                <ul class="mt-3 flex flex-col gap-3">
+                    <li>
+                        <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
                 {{ Request::is('dashboard') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
-                        href="/dashboard">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                        </svg>
+                            href="/dashboard">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                            </svg>
 
-                        <span class="mx-3">Dashboard</span>
-                    </a>
+                            <span class="mx-3">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex {{ Request::is('dashboard/posts*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }} items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100"
+                            href="/dashboard/posts">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                </path>
+                            </svg>
 
-                    <a class="flex {{ Request::is('dashboard/posts*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }} items-center mt-4 py-2 px-6  hover:text-gray-100  hover:bg-gray-700"
-                        href="/dashboard/posts">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-                            </path>
-                        </svg>
-
-                        <span class="mx-3">My Posts</span>
-                    </a>
-                </nav>
+                            <span class="mx-3">My Posts</span>
+                        </a>
+                    </li>
+                </ul>
                 @if (auth()->user() && auth()->user()->role === 'admin')
                     <div>
                         <h6 class="uppercase px-6 text-gray-400">Administrator</h6>
-                        <ul class="mt-3">
+                        <ul class="mt-3 gap-3 flex flex-col">
                             <li>
                                 <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
                             {{ Request::is('dashboard/categories*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
                                     href="/dashboard/categories">
                                     <x-feathericon-grid />
-
                                     <span class="mx-3">Post Categories</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
+                            {{ Request::is('dashboard/users*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
+                                    href="/dashboard/users">
+                                    <x-feathericon-user />
+
+                                    <span class="mx-3">Users</span>
                                 </a>
                             </li>
                         </ul>

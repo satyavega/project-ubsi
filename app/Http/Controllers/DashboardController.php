@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-
-
 class DashboardController extends Controller
 {
     /**
@@ -17,7 +16,8 @@ class DashboardController extends Controller
     {
         return view('dashboard.dashboard', [
             'title' => 'dashboard',
-            'posts' => $post::where('user_id', auth()->user()->id)->get()
+            'posts' => $post::where('user_id', auth()->user()->id)->get(),
+            'users' => User::where('role', 'user')
         ]);
     }
 

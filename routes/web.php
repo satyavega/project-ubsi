@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use GuzzleHttp\Middleware;
@@ -75,8 +76,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'destroy'])->name('category.destroy');
 
 
+    Route::get('dashboard/users', function () {
+        return view('dashboard.admin.users.index', [
+            'title' => 'Users',
+            'users' => User::where('role', 'user')
+        ]);
+    });
 });
-
 
 
 require __DIR__ . '/auth.php';
