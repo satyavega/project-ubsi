@@ -32,22 +32,6 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('1234567890'),
                 'role' => 'user'
             ],
-            [
-                'id' => '3',
-                'username' => 'Shinji',
-                'slug' => 'shinji',
-                'email' => 'shin@gmail.com',
-                'password' => bcrypt('1234567890'),
-                'role' => 'user'
-            ],
-            [
-                'id' => '4',
-                'username' => 'Yoru Naka',
-                'slug' => 'yoru-naka',
-                'email' => 'yor@gmail.com',
-                'password' => bcrypt('1234567890'),
-                'role' => 'user'
-            ],
         ]);
     }
 }

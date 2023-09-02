@@ -99,6 +99,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             'users' => $usersWithPostCount,
         ]);
     });
+
+    Route::get('dashboard/users/{user:name}', function (User $user) {
+        $posts = Post::where('user_id', $user->id)->get();
+        return view('dashboard.admin.users.show', [
+            'title' => "Detail User's Posts",
+            'posts' => $posts,
+            'user' => $user, // Pass the specific user to the view
+        ]);
+    });
+
 });
 
 
