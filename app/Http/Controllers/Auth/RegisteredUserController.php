@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
@@ -29,23 +30,28 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+{
+    $request->validate([
+        'username' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+    // Generate slug from username and save it to the database
+    $slug = Str::slug($request->input('username'));
 
-        event(new Registered($user));
+    $user = User::create([
+        'username' => $request->username,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'slug' => Str::slug($request->username), // Save the generated slug
+    ]);
 
-        Auth::login($user);
+    // Assign the 'user' role to the registered user
+    $user->assignRole('user'); // Make sure you have role management implemented.
 
-        return redirect(RouteServiceProvider::HOME);
-    }
+    Auth::login($user);
+
+    return redirect(RouteServiceProvider::HOME);
+}
 }

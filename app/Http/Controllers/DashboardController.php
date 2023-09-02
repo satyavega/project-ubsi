@@ -12,14 +12,17 @@ class DashboardController extends Controller
      * Display a listing of the resource.
      */
 
-    public function index(Post $post)
-    {
-        return view('dashboard.dashboard', [
-            'title' => 'dashboard',
-            'posts' => $post::where('user_id', auth()->user()->id)->get(),
-            'users' => User::where('role', 'user')
-        ]);
-    }
+public function index(Post $post)
+{
+    $totalUsers = User::where('role', 'user')->count(); // Menghitung total user dengan peran 'user'
+
+    return view('dashboard.dashboard', [
+        'title' => 'dashboard',
+        'posts' => $post::where('user_id', auth()->user()->id)->get(),
+        'totalUsers' => $totalUsers, // Kirim total user ke tampilan
+    ]);
+}
+
 
     /**
      * Show the form for creating a new resource.

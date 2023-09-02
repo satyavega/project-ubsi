@@ -5,9 +5,15 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Username')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required
+                autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+        </div>
+
+        <!-- Slug (Hidden) -->
+        <div style="display: none;">
+            <x-input-label for="slug" :value="__('Slug')" />
+            <x-text-input id="slug" type="text" name="slug" :value="old('slug')" />
         </div>
 
         <!-- Email Address -->
@@ -49,4 +55,5 @@
             </x-primary-button>
         </div>
     </form>
+
 </x-guest-layout>
