@@ -90,11 +90,11 @@ class DashboardPostController extends Controller
         ]);
 
         // Upload image
+        $imagePath = null; // Default image path
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $imagePath = $image->store('posts', 'public');
-        } else {
-            $imagePath = null;
+            $imagePath = 'posts/' . $image->getClientOriginalName(); // Path gambar diubah menjadi 'posts/nama_file.jpg'
+            $image->storeAs('posts', $image->getClientOriginalName(), 'public'); // Simpan gambar ke direktori 'storage/app/public/posts/'
         }
 
         // Create post
@@ -105,10 +105,9 @@ class DashboardPostController extends Controller
             'excerpt' => $validatedData['excerpt'],
             'body' => $validatedData['body'],
             'category_id' => $validatedData['category_id'],
-            'image' => $imagePath ? '/storage/' . $imagePath : null,
+            'image' => $imagePath, // Menggunakan path gambar yang baru
             'user_id' => $user->id, // Menyertakan user_id dari pengguna yang sedang masuk
         ]);
-
 
         // Attach tags
         $post->tags()->attach($validatedData['tag_ids']);
@@ -117,14 +116,15 @@ class DashboardPostController extends Controller
     }
 
 
+
     /**
      * Display the specified resource.
      */
     public function show(Post $post)
     {
-        if ($post->author->id !== auth()->user()->id) {
-            abort(403);
-        }
+        // <!-- if (!$post->user || $post->user->id !== auth()->user()->id) {
+        //     abort(403); // Unauthorized
+        // } -->
 
         return view('dashboard.posts.show', [
             'post' => $post,
@@ -132,21 +132,34 @@ class DashboardPostController extends Controller
         ]);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Post $post)
     {
-        if ($post->author->id !== auth()->user()->id) {
-            abort(403);
+        if (auth()->user()->role === 'admin') {
+            // Admin dapat mengedit semua postingan
+            return view('dashboard.posts.edit', [
+                'title' => 'Edit post',
+                'post' => $post,
+                'categories' => Category::all(),
+                'tags' => Tag::all()
+            ]);
         }
 
-        return view('dashboard.posts.edit', [
-            'title' => 'Edit post',
-            'post' => $post,
-            'categories' => Category::all(),
-            'tags' => Tag::all()
-        ]);
+        // Periksa apakah pengguna adalah pemilik postingan
+        if ($post->user->id === auth()->user()->id) {
+            return view('dashboard.posts.edit', [
+                'title' => 'Edit post',
+                'post' => $post,
+                'categories' => Category::all(),
+                'tags' => Tag::all()
+            ]);
+        }
+
+        // Jika bukan admin dan bukan pemilik postingan, berikan izin 403
+        abort(403);
     }
 
     /**
@@ -162,26 +175,35 @@ class DashboardPostController extends Controller
             'tag_ids' => ['array'],
         ];
 
-
         if ($request->slug != $post->slug) {
             $rules['slug'] = ['unique:posts'];
         }
 
         $validatedData = $request->validate($rules);
 
-        if ($request->file('image')) {
-            if ($post->image != null) Storage::delete($post->image);
-            $validatedData['image'] = $request->file('image')->store('posts');
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($post->image != null) {
+                Storage::delete('public/' . $post->image);
+            }
+
+            $image = $request->file('image');
+            $imagePath = 'posts/' . $image->getClientOriginalName();
+            $image->storeAs('posts', $image->getClientOriginalName(), 'public');
+            $validatedData['image'] = $imagePath;
         }
 
-        $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body, 200));
 
-        Post::where('id', $post->id)->update($validatedData);
+        // Update post
+        $post->update($validatedData);
+
+        // Sync tags
         $post->tags()->sync($request->tag_ids);
 
         return redirect('/dashboard/posts')->with('success', 'Posts has been updated!');
     }
+
 
     /**
      * Remove the specified resource from storage.

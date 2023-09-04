@@ -4,7 +4,7 @@
     @include('layouts.headbar')
 @section('secContainer')
     <div class="px-10">
-        <h1 class="font-medium">Welcome Back, <span class="font-bold">{{ Str::title(Auth::user()->name) }}</span>!</h1>
+        <h1 class="font-medium">Welcome Back, <span class="font-bold">{{ Str::title(Auth::user()->username) }}</span>!</h1>
         <div class="grid grid-cols-3 gap-5 text-white py-10">
             <div class="bg-slate-900 p-5">
                 <div class="flex justify-between">

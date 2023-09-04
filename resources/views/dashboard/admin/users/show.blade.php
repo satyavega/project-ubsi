@@ -30,7 +30,7 @@
                     }, 3000);
                 </script>
             @endif
-            <h3 class="text-gray-700 text-3xl font-medium">{{ $user->name }}'s Posts!</h3>
+            <h3 class="text-gray-700 text-3xl font-medium">{{ $user->username }}'s Posts!</h3>
             {{-- @include('dashboard.partials.card') --}}
         </div>
         <a href="/dashboard/posts/create"

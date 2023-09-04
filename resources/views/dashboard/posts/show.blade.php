@@ -35,7 +35,7 @@
             @if ($post->image)
                 <div class="overflow-hidden rounded-md w-full">
                     <img class="object-cover max-h-[450px] w-full shadow-xl rounded-md max-sm:w-11/12"
-                        src="{{ asset($post->image) }}" alt="{{ $post->category->name }}">
+                        src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
                 </div>
             @else
                 <img class="object-cover shadow-xl rounded-md w-full max-sm:w-11/12" src="https://picsum.photos/1200/400"

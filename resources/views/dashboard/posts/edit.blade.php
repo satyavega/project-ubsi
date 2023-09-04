@@ -73,7 +73,7 @@
                 <div class="mb-6">
                     <label for="image" class="block mb-2 text-lg font-medium text-gray-700">Image</label>
                     @if ($post->image)
-                        <img src="{{ asset('storage/' . $post->image) }}"
+                        <img src="{{ asset($post->image) }}"
                             class="img-preview w-[50%] h-[150px] mb-5 object-left object-contain" alt="ini image">
                     @else
                         <img class="img-preview w-[50%] h-[150px] mb-5 object-contain" alt="gada image">
@@ -90,6 +90,20 @@
                     @enderror
                 </div>
                 <div class="mb-6">
+                    <label for="excerpt" class="block w-full mb-2 text-lg font-medium text-gray-700">Excerpt</label>
+                    <input id="excerpt" type="hidden" name="excerpt" value="{{ old('excerpt') }}">
+                    <input type="text" id="excerpt" name="excerpt" value="{{ old('excerpt', $post->excerpt) }}"
+                        class="bg-gray-50 border border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-transparent @error('excerpt')
+                                invalid:border-red-500 invalid:text-pink-600 invalid:focus:border-pink-500 invalid:focus:ring-pink-500
+                                @enderror"
+                        placeholder="Excerpt here" required>
+                    @error('excerpt')
+                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                            {{ $message }}
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-6">
                     <label for="body" class="block w-full mb-2 text-lg font-medium text-gray-700">Body</label>
                     <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}">
                     <trix-editor
@@ -99,21 +113,6 @@
                             @enderror"
                         input="body" placeholder="Body here"></trix-editor @required(true)>
                     @error('body')
-                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                            {{ $message }}
-                        </span>
-                    @enderror
-                </div>
-                <div class="mb-6">
-                    <label for="excerpt" class="block w-full mb-2 text-lg font-medium text-gray-700">excerpt</label>
-                    <input id="excerpt" type="hidden" name="excerpt" value="{{ old('excerpt', $post->excerpt) }}">
-                    <trix-editor
-                        class="prose bg-gray-50 focus:border-2 border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full bg-transparent @error('excerpt')
-                            invalid:border-pink-500 invalid:text-pink-600
-                            focus:invalid:border-pink-500 focus:invalid:ring-pink-500
-                            @enderror"
-                        input="excerpt" placeholder="excerpt here"></trix-editor @required(true)>
-                    @error('excerpt')
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                             {{ $message }}
                         </span>

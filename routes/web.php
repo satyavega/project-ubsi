@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -78,37 +79,17 @@ Route::get('/dashboard', function () {
     ]);
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::resource('/dashboard/categories', AdminCategoryController::class, [
-        'except' => ['show']
-    ]);
-
-    // Anda hanya perlu rute ini untuk mengedit dan mengupdate
+    //category
+    Route::resource('/dashboard/categories', AdminCategoryController::class, ['except' => ['show']]);
     Route::get('/dashboard/categories/{category:slug}/edit', [AdminCategoryController::class, 'edit'])->name('category.edit');
     Route::put('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'update'])->name('category.update');
     Route::delete('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'destroy'])->name('category.destroy');
-
-
-
-    Route::get('dashboard/users', function () {
-        $usersWithPostCount = User::where('role', 'user')
-            ->withCount('posts as posts_count') // Menghitung jumlah posting untuk setiap pengguna
-            ->get();
-
-        return view('dashboard.admin.users.index', [
-            'title' => 'Users',
-            'users' => $usersWithPostCount,
-        ]);
-    });
-
-    Route::get('dashboard/users/{user:name}', function (User $user) {
-        $posts = Post::where('user_id', $user->id)->get();
-        return view('dashboard.admin.users.show', [
-            'title' => "Detail User's Posts",
-            'posts' => $posts,
-            'user' => $user, // Pass the specific user to the view
-        ]);
-    });
-
+    //user
+    Route::resource('dashboard/users', UserController::class, ['except' => ['edit']]);
+    Route::get('/dashboard/users/{user:slug}/show', [UserController::class, 'show'])->name('user.show');
+    Route::delete('/dashboard/users/{user:slug}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::get('/dashboard/users/{post:slug}/edit', 'DashboardPostController@edit')->name('dashboard.posts.edit');
+    // Route::get('dashboard/users', [UserController::class, 'index']);
 });
 
 

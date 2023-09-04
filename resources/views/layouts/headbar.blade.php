@@ -29,7 +29,7 @@
                 <img class="h-full w-full object-cover" src="https://picsum.photos/32" alt="Your avatar">
             </button>
             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 rounded-box w-52 shadow-xl bg-gray-50 border">
-                <li class="border-b"><a>Hi, {{ Str::title(Auth::user()->name) }}!</a></li>
+                <li class="border-b"><a>Hi, {{ Str::title(Auth::user()->username) }}!</a></li>
                 <div class="pt-4">
                     <li><a href="/profile"
                             class="text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">Profile</a>
