@@ -21,7 +21,7 @@
         @include('home.titleWithDescripton')
         @include('home.rightImage')
     </div>
-    @include('partials.wave')
+    @include('partials.boxLink')
     @include('partials.portalNews')
     @include('partials.footer')
 </body>
