@@ -21,12 +21,7 @@
         @include('home.titleWithDescripton')
         @include('home.rightImage')
     </div>
-    <div class="relative mt-44">
-        @include('partials.wave')
-        <div class="grid grid-cols-2 gap-5 px-5 absolute top-16">
-            @include('home.linkBoxes')
-        </div>
-    </div>
+    @include('partials.boxLink')
     @include('partials.portalNews')
     @include('partials.footer')
 </body>

@@ -114,13 +114,16 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="tag" class="form-label">Tag</label><br>
-                    <div class="grid grid-cols-5 gap-2">
+                    <label for="tag" class="form-label">Tag</label>
+                    <div class="grid grid-cols-5">
                         @foreach ($tags as $tag)
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="tag_ids[]"
+                            <div class="form-check w-fit">
+                                {{-- <input type="checkbox" class="form-check-input" name="tag_ids[]"
                                     value="{{ $tag->id }}"
-                                    {{ in_array($tag->id, old('tag_ids', $data->tag_ids)) ? 'checked' : '' }}>
+                                    {{ in_array($tag->id, old('tag_ids', $data->tag_ids)) ? 'checked' : '' }}> --}}
+                                <input type="checkbox" value="{{ old('tag_ids[]') }}"
+                                    class="rounded border-gray-300 text-indigo-600 shadow-sm form-check-input focus:ring-indigo-500 {{ in_array($tag->id, old('tag_ids', $data->tag_ids)) ? 'checked' : '' }}"
+                                    name="tag_ids[]">
                                 <label class="form-check-label">{{ $tag->name }}</label>
                             </div>
                         @endforeach
