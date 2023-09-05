@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+// use Laravel\Jetstream\Jetstream;
 
 class RegisteredUserController extends Controller
 {
@@ -35,23 +36,32 @@ class RegisteredUserController extends Controller
         'username' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        'image' => ['required'],
     ]);
 
-    // Generate slug from username and save it to the database
-    $slug = Str::slug($request->input('username'));
+    // Simpan gambar
+    $imagePath = $request->file('image')->store('profile_images', 'public');
+
+    $username = $request->input('username');
+
+    // Jetstream::role('user', __('User'), [
+    //     'name' => 'User',
+    // ])->description(__('This role has basic access to the application.'));
 
     $user = User::create([
-        'username' => $request->username,
+        'username' => $username,
         'email' => $request->email,
         'password' => Hash::make($request->password),
-        'slug' => Str::slug($request->username), // Save the generated slug
+        'slug' => Str::slug($request->username),
+        'image' => $imagePath, // Mengisi kolom 'image' dengan path gambar
+
     ]);
 
-    // Assign the 'user' role to the registered user
-    $user->assignRole('user'); // Make sure you have role management implemented.
+    // $user->assignRole('user');
 
     Auth::login($user);
 
     return redirect(RouteServiceProvider::HOME);
 }
+
 }

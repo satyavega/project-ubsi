@@ -2,10 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class UserSeeder extends Seeder
@@ -17,20 +20,20 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'id' => '1',
                 'username' => 'rinsan',
                 'slug' => 'rinsan',
                 'email' => 'rin@gmail.com',
-                'password' => bcrypt('1234567890'),
-                'role' => 'admin'
+                'password' => Hash::make('1234567890'),
+                'role' => 'admin',
+                'image' => 'profile_images/rinsan.png',
             ],
             [
-                'id' => '2',
                 'username' => 'Mika',
                 'slug' => 'mika',
                 'email' => 'mika@gmail.com',
                 'password' => bcrypt('1234567890'),
-                'role' => 'user'
+                'role' => 'user',
+                'image' => 'profile_images/mika.jpg',
             ],
         ]);
     }

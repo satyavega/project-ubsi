@@ -1,19 +1,21 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Username')" />
+            <x-input-label for="username" :value="__('Username')" />
             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required
                 autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('username')" class="mt-2" />
         </div>
 
         <!-- Slug (Hidden) -->
-        <div style="display: none;">
+        {{-- <div style="display: none;"> --}}
+        <div class="mt-4">
             <x-input-label for="slug" :value="__('Slug')" />
-            <x-text-input id="slug" type="text" name="slug" :value="old('slug')" />
+            <x-text-input id="slug" class="block mt-1 w-full" type="text" name="slug" :value="old('slug')"
+                disabled />
         </div>
 
         <!-- Email Address -->
@@ -44,6 +46,13 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- Profile Image -->
+        <div class="mt-4">
+            <x-input-label for="image" :value="__('Profile Image')" />
+            <input id="image" type="file" name="image">
+            <x-input-error :messages="$errors->get('image')" class="mt-2" />
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href="{{ route('login') }}">
@@ -57,3 +66,14 @@
     </form>
 
 </x-guest-layout>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#username').on('input', function() {
+            console.log('Event username diisi.');
+            var title = $(this).val();
+            var slug = title.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+            $('#slug').val(slug);
+        });
+    });
+</script>
