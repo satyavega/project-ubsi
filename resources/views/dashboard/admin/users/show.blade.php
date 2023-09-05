@@ -33,10 +33,6 @@
             <h3 class="text-gray-700 text-3xl font-medium">{{ $user->username }}'s Posts!</h3>
             {{-- @include('dashboard.partials.card') --}}
         </div>
-        <a href="/dashboard/posts/create"
-            class="btn hover:bg-blue-800 bg-blue-500 mb-5 px-4 rounded-lg active:border-2 border-blue-800 border-opacity-70 text-white text-lg">Create
-            new
-            post</a>
         @include('partials.tablePost')
     </main>
 @endsection
