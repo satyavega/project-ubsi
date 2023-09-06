@@ -1,8 +1,8 @@
-<div class="pl-3 flex flex-col">
-    <div class="pt-10 flex-col w-min gap-5 justify-center flex h-screen">
+<div class="pl-3 flex flex-col max-md:w-full">
+    <div class="pt-10 flex-col w-min gap-5 justify-center flex max-xl:h-screen max-md:h-fit">
         <div class="flex h-fit items-center gap-2">
             <h2 class="text-5xl font-semibold">Pendidikan</h2>
-            <div class="w-80 h-[2px] mt-3 bg-cyan-500"></div>
+            <div class="w-56 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
         </div>
         <p class="leading-relaxed text-slate-900 text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Velit, assumenda.</p>
