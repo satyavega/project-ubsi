@@ -47,7 +47,6 @@ Route::get('/user/{slug}', 'UserController@show')->name('user.show');
 
 Route::get('categories', [CategoryController::class, 'index']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
@@ -55,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 Route::post('/dashboard/posts/create', function () {
     App\Models\Post::create(['title' => request('title')]);
@@ -68,16 +68,6 @@ Route::get('check_slug', function () {
 Route::view('struktur-organisasi', 'pages.organisasi', ['title' => 'Organisasi']);
 Route::view('proker-organisasi', 'pages.prokerOrganisasi', ['title' => 'Proker Organisasi']);
 
-Route::get('/dashboard', function () {
-    $totalPosts = Post::count();
-    $totalUsers = User::count();
-
-    return view('dashboard.dashboard', [
-        'title' => 'Dashboard',
-        'totalPosts' => $totalPosts,
-        'totalUsers' => $totalUsers, // Mengirim total pengguna ke tampilan
-    ]);
-});
 Route::middleware(['auth', 'role:admin'])->group(function () {
     //category
     Route::resource('/dashboard/categories', AdminCategoryController::class, ['except' => ['show']]);
@@ -86,7 +76,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/dashboard/categories/{category:slug}', [AdminCategoryController::class, 'destroy'])->name('category.destroy');
     //user
     Route::resource('dashboard/users', UserController::class, ['except' => ['edit']]);
-    Route::get('/dashboard/users/{user:slug}/show', [UserController::class, 'show'])->name('user.show');
+    Route::get('/dashboard/users/{user:slug}/show', [UserController::class, 'show'])->name('userdetail.show');
     Route::delete('/dashboard/users/{user:slug}', [UserController::class, 'destroy'])->name('user.destroy');
     Route::get('/dashboard/users/{post:slug}/edit', 'DashboardPostController@edit')->name('dashboard.posts.edit');
     // Route::get('dashboard/users', [UserController::class, 'index']);

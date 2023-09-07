@@ -42,7 +42,7 @@
 
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="flex gap-2">
-                                    <a href="{{ route('user.show', $user->slug) }}">
+                                    <a href="{{ route('userdetail.show', $user->slug) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                             class="w-8 h-7 border bg-indigo-600 hover:bg-indigo-900 text-gray-100">
                                             <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
