@@ -27,9 +27,9 @@
                     $imagePath = public_path('posts/' . $post->image);
                 @endphp
                 @if ($post->image)
-                    <div class="overflow-hidden max-h-[250px] w-[400px]">
-                        <img class="object-cover w-full shadow-xl max-sm:w-11/12" src="{{ asset($post->image) }}"
-                            alt="{{ $post->category->name }}">
+                    <div class=" ">
+                        <img class="object-cover object-center max-h-[250px] w-[400px] shadow-xl max-sm:w-11/12"
+                            src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
                     </div>
                 @else
                     <img class="object-cover shadow-xl rounded-md w-full max-sm:w-11/12"
