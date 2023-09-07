@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\PostTag;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\RedirectResponse;
@@ -85,7 +86,8 @@ class DashboardPostController extends Controller
             'excerpt' => 'required|min:8',
             'body' => 'required',
             'category_id' => 'required|numeric',
-            'tag_ids.*' => 'required|numeric',
+            'tag_ids' => 'required|array',
+            'tag_ids.*' => 'numeric',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
 
@@ -110,7 +112,13 @@ class DashboardPostController extends Controller
         ]);
 
         // Attach tags
-        $post->tags()->attach($validatedData['tag_ids']);
+        foreach ($validatedData['tag_ids'] as $tag_id) {
+            PostTag::create([
+                'post_id' => $post->id,
+                'tag_id' => $tag_id,
+            ]);
+        }
+        // $post->tags()->attach($validatedData['tag_ids']);
 
         return redirect('/dashboard/posts')->with('success', 'Post has been added!');
     }

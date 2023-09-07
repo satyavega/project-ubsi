@@ -118,10 +118,7 @@
                     <div class="grid grid-cols-5">
                         @foreach ($tags as $tag)
                             <div class="form-check w-fit">
-                                {{-- <input type="checkbox" class="form-check-input" name="tag_ids[]"
-                                    value="{{ $tag->id }}"
-                                    {{ in_array($tag->id, old('tag_ids', $data->tag_ids)) ? 'checked' : '' }}> --}}
-                                <input type="checkbox" value="{{ old('tag_ids[]') }}"
+                                <input type="checkbox" value="{{ $tag->id }}"
                                     class="rounded border-gray-300 text-indigo-600 shadow-sm form-check-input focus:ring-indigo-500 {{ in_array($tag->id, old('tag_ids', $data->tag_ids)) ? 'checked' : '' }}"
                                     name="tag_ids[]">
                                 <label class="form-check-label">{{ $tag->name }}</label>
