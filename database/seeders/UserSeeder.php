@@ -25,7 +25,6 @@ class UserSeeder extends Seeder
                 'email' => 'rin@gmail.com',
                 'password' => Hash::make('1234567890'),
                 'role' => 'admin',
-                'image' => 'profile_images/rinsan.png',
             ],
             [
                 'username' => 'Mika',
@@ -33,7 +32,6 @@ class UserSeeder extends Seeder
                 'email' => 'mika@gmail.com',
                 'password' => bcrypt('1234567890'),
                 'role' => 'user',
-                'image' => 'profile_images/mika.jpg',
             ],
         ]);
     }

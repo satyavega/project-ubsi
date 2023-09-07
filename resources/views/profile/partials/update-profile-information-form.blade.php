@@ -13,15 +13,15 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)"
-                required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="username" :value="__('Username')" />
+            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)"
+                required autofocus autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('username')" />
         </div>
 
         <div>
@@ -49,18 +49,6 @@
                 </div>
             @endif
         </div>
-        <div>
-            <x-input-label for="image" :value="__('Profile Image')" />
-            <input type="file" id="image" name="image" accept="image/*" class="mt-1 block w-full">
-            <x-input-error class="mt-2" :messages="$errors->get('image')" />
-
-            <!-- Tampilkan foto profil sebelumnya -->
-            <div class="mt-2" x-show="imagePreview">
-                <x-input-label :value="__('Previous Profile Image')" />
-                <img :src="imagePreview" alt="Previous Profile Image" class="max-w-xs mt-2">
-            </div>
-        </div>
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
@@ -71,23 +59,3 @@
         </div>
     </form>
 </section>
-
-<script>
-    const imageInput = document.getElementById('image');
-    const imagePreview = document.querySelector('.mt-2[x-show] img');
-
-    imageInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                imagePreview.src = e.target.result;
-                imagePreview.style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        } else {
-            imagePreview.src = '';
-            imagePreview.style.display = 'none';
-        }
-    });
-</script>

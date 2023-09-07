@@ -46,13 +46,6 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <!-- Profile Image -->
-        <div class="mt-4">
-            <x-input-label for="image" :value="__('Profile Image')" />
-            <input id="image" type="file" name="image">
-            <x-input-error :messages="$errors->get('image')" class="mt-2" />
-        </div>
-
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href="{{ route('login') }}">

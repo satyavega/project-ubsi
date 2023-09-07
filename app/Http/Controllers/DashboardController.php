@@ -15,11 +15,13 @@ class DashboardController extends Controller
 public function index(Post $post)
 {
     $totalUsers = User::where('role', 'user')->count(); // Menghitung total user dengan peran 'user'
+    $users = User::all();
 
     return view('dashboard.dashboard', [
         'title' => 'dashboard',
         'posts' => $post::where('user_id', auth()->user()->id)->get(),
         'totalUsers' => $totalUsers, // Kirim total user ke tampilan
+        // 'users' => $users::where
     ]);
 }
 

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->default('user');
             $table->rememberToken();
-            $table->string('image');
             $table->timestamps();
             $table->unsignedBigInteger('posts_count')->default(0); // default 0
 

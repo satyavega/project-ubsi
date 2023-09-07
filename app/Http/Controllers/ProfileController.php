@@ -33,22 +33,11 @@ class ProfileController extends Controller
 
     $request->validate([
         'username' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $user->id],
+        'email' => ['string', 'email', 'max:255', 'unique:users,email,' . $user->id],
         'password' => ['nullable', 'confirmed'],
-        'image' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
     ]);
 
     $user->fill($request->validated());
-
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('profile_images', 'public');
-
-        if ($user->image) {
-            Storage::disk('public')->delete($user->image);
-        }
-
-        $user->image = $imagePath;
-    }
 
     if ($user->isDirty('email')) {
         $user->email_verified_at = null;

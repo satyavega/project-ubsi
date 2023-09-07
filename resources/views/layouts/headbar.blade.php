@@ -26,7 +26,8 @@
             {{-- <label tabindex="0" class="btn m-1">Click</label> --}}
             <button
                 class="relative block h-8 w-8 border-2 border-blue-400 rounded-full overflow-hidden shadow focus:outline-none">
-                <img class="h-full w-full object-cover" src="https://picsum.photos/32" alt="Your avatar">
+                <img class="h-full w-full object-cover" src="{{ asset('storage/' . Auth::user()->image) }}"
+                    alt="Your avatar">
             </button>
             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 rounded-box w-52 shadow-xl bg-gray-50 border">
                 <li class="border-b"><a>Hi, {{ Str::title(Auth::user()->username) }}!</a></li>

@@ -36,25 +36,14 @@ class RegisteredUserController extends Controller
         'username' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        'image' => ['required'],
     ]);
-
-    // Simpan gambar
-    $imagePath = $request->file('image')->store('profile_images', 'public');
-
     $username = $request->input('username');
-
-    // Jetstream::role('user', __('User'), [
-    //     'name' => 'User',
-    // ])->description(__('This role has basic access to the application.'));
 
     $user = User::create([
         'username' => $username,
         'email' => $request->email,
         'password' => Hash::make($request->password),
         'slug' => Str::slug($request->username),
-        'image' => $imagePath, // Mengisi kolom 'image' dengan path gambar
-
     ]);
 
     // $user->assignRole('user');
