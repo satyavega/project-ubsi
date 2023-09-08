@@ -1,4 +1,4 @@
-    <div
+    {{-- <div
         class="navbar px-10 h-max p-3 bg-transparent text-white top-0 z-30 bg-slate-900 transition duration-300 ease-in-out">
         <div class="flex-1">
             <div class="dropdown mr-10">
@@ -102,4 +102,55 @@
         </ul>
     </div>
     </div>
-    </div>
+    </div> --}}
+
+    <nav class="navbar nav flex justify-around sticky top-0 bg-white/75 backdrop-blur-lg z-50">
+        <div>
+            <a href="/"><img class="rounded w-14" src="images/UBSI_logos.svg" alt="logo BEM BSI"
+                    title="logo BEM BSI"></a>
+        </div>
+        <ul class="flex gap-5 text-base">
+            <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ $title === 'Home' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
+                    href="/">Home</a></li>
+            <li><a class="hover:text-blue-500  transition-all duration-300 ease-in-out {{ request()->segment(1) === 'tentang-kami' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
+                    href="tentang-kami">Tentang Kami</a></li>
+            <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'pengurus' ? 'font-bold' : 'text-gray-400' }}"
+                    href="pengurus">Pengurus</a></li>
+            <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'kementrian' ? 'font-bold' : 'text-gray-400' }}"
+                    href="kementrian">Kementrian</a></li>
+            <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'artikel' ? 'font-bold' : 'text-gray-400' }}"
+                    href="artikel">Artikel</a></li>
+            <li>
+                {{-- <a class="hover:text-blue-500 transition-all duration-300 ease-in-out  {{ request()->segment(1) === 'belum ada nih dik' ? 'bg-blue-700 text-white p-3 rounded-lg' : 'text-gray-400' }}"
+                    href="">Fitur</a> --}}
+                <div class="dropdown dropdown-hover">
+                    <label tabindex="0"
+                        class="hover:cursor-pointer flex gap-2 hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'artikel' ? 'font-bold' : 'text-gray-400' }}">Lainnya
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-7">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </label>
+                    <ul tabindex="0"
+                        class="dropdown-content z-[1] menu p-2 shadow rounded-box min-w-fit border bg-white backdrop-blur-lg">
+                        <li><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200" href="kritik-saran">Kritik &
+                                Saran</a>
+                        </li>
+                        <li><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200" href="/">Item 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="flex items-center text-xl">
+            <li><a class="hover:text-gray-300 transition-all duration-300 ease-in-out hover:bg-blue-600 rounded px-3 py-2 flex gap-[2px] flex-row"
+                    href="/login">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-8">
+                        <title>Login</title>
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    </svg>
+                </a></li>
+        </ul>
+    </nav>
