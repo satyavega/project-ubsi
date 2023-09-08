@@ -82,5 +82,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Route::get('dashboard/users', [UserController::class, 'index']);
 });
 
+Route::get('tentang-kami', function () {
+    return view('pages.tentangkami', [
+        'title' => 'tentang kami'
+    ]);
+});
+
 
 require __DIR__ . '/auth.php';

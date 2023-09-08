@@ -28,7 +28,7 @@
                 @endphp
                 @if ($post->image)
                     <div class=" ">
-                        <img class="object-cover object-center max-h-[250px] w-[400px] shadow-xl max-sm:w-11/12"
+                        <img class="object-cover object-center max-h-[250px] w-[400px] max-sm:w-11/12"
                             src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
                     </div>
                 @else
