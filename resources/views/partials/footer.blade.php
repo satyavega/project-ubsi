@@ -1,18 +1,18 @@
 <footer class="footer flex flex-col text-white p-5 mt-10 bg-slate-900">
-    <div class="flex flex-row gap-20 border-b w-full pb-5 border-gray-600">
+    <div class="flex flex-row gap-20 border-b w-full pb-5 border-gray-600 max-lg:flex-col max-lg:gap-10">
         <a href="/" class="flex items-center gap-5">
             <img class="rounded" src="images/UBSI_logos.svg" style="width: 80px" alt="">
             <span class="flex text-2xl flex-col items-center">UNIVERSITAS <span class="text-sm">BINA SARANA
                     INFORMATIKA
                 </span></span>
         </a>
-        <div class="flex flex-col gap-5 w-min">
+        <div class="flex flex-col gap-5">
             <div class="flex flex-col gap-3">
                 <h1 class="text-2xl font-semibold">Alamat</h1>
-                <div class="w-80 h-[2px] bg-cyan-900"></div>
+                <div class="w-80 h-[2px] bg-cyan-900 max-sm:w-1/2"></div>
             </div>
-            <div class="flex flex-row gap-5">
-                <div class="flex flex-col gap-2 w-max">
+            <div class="flex flex-row gap-5 max-md:flex-col">
+                <div class="flex flex-col gap-2">
                     <h3 class="text-xl font-semibold">UBSI Sukabumi</h3>
                     <p class="text-base">Jl. Raya Cemerlang No.8, Sukakarya, Kec. Warudoyong, Kota Sukabumi, Jawa Barat
                         43135

@@ -10,11 +10,12 @@
 </head>
 
 <body>
-    @yield('container')
-    <div class="mx-5 relative">
-        @yield('secContainer')
+    @include('partials.transparentNav')
+
+    <div class="px-28 overflow-hidden">
+        @yield('container')
     </div>
-    @yield('footer')
+    @include('partials.footer')
 </body>
 
 </html>
