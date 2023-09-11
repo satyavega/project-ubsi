@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
-    <title>{{ Str::title($title) }}</title>
-</head>
-
-<body>
-    @include('partials.transparentNav')
-    @include('partials.hero')
+@extends('layouts.main')
+@section('container')
+    <section class="min-h-[60vh] md:min-h-screen flex flex-col pt-44">
+        @include('partials.hero')
+    </section>
     {{-- <script src="{{ asset('js/navbar.js') }}"></script> --}}
     <div class="pt-10 relative max-md:hidden">
         <div class="w-60 h-20 absolute z-10 bg-slate-950"></div>
@@ -28,8 +19,7 @@
     </div>
 
     @include('partials.boxLink')
-    @include('partials.portalNews')
-    @include('partials.footer')
-</body>
-
-</html>
+    <section>
+        @include('partials.portalNews')
+    </section>
+@endsection

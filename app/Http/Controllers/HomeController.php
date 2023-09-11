@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
             return view('pages.home', [
                 // @dd($post)
-                'posts' => $post::take(3)->get(),
+                'posts' => $post::take(4)->get(),
                 'title' => 'Home'
             ]);
     }
