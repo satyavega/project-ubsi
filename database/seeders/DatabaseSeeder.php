@@ -16,24 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(5)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        // User::create([
-        //     'name' => 'Mikaela Hyakuya',
-        //     'username' => 'Mikaela',
-        //     'email' => 'mika@gmail.com',
-        //     'password' => bcrypt(12345)
-        // ]);
-
-        // User::factory(3)->create();
-
-        // Post::factory(20)->create();
-
         $this->call([UserSeeder::class, TagSeeder::class, CategorySeeder::class]);
     }
 }

@@ -51,33 +51,6 @@
                 </div>
             </ul>
         </div>
-        {{-- <div x-data="{ dropdownOpen: false }" class="relative">
-            <button @click="dropdownOpen = ! dropdownOpen"
-                class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
-                <img class="h-full w-full object-cover" src="https://picsum.photos/32" alt="Your avatar">
-            </button>
 
-            <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"
-                style="display: none;"></div>
-
-            <div x-show="dropdownOpen"
-                class="absolute border-y-gray-400 border-2 right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10"
-                style="display: none;">
-                <a href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
-                <a href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Products</a>
-                <form class="px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white" action="/logout"
-                    method="post">
-                    @csrf
-                    <button class="flex gap-2" type="submit">Logout <svg xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                        </svg>
-                    </button>
-                </form>
-            </div>
-        </div> --}}
 </div>
 </header>
