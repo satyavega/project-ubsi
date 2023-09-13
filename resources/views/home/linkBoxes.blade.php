@@ -14,7 +14,7 @@
                 perferendis
                 aperiam incidunt nulla
                 saepe quasi commodi, ex quos.</p>
-            <a href="/struktur-organisasi"
+            <a href="/tentang-kami#struktur-organisasi"
                 class="btn uppercase text-base bg-slate-900 hover:bg-slate-950 text-white w-max max-md:text-sm">selengkapnya
                 <span class="hover:pl-3 duration-150 transition-all ease-in-out">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
