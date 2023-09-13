@@ -30,9 +30,6 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                {{-- <a href="/dashboard/categories/{{ $category->slug }}"><x-heroicon-o-eye
-                                    class="w-8 h-7 p-1 bg-indigo-600 hover:bg-indigo-900 text-gray-100 rounded-md" />
-                                </a> --}}
                                 <form action="/dashboard/categories/{{ $category->slug }}" method="post">
                                     <div class="flex gap-2">
                                         <a href="{{ route('category.edit', ['category' => $category->slug]) }}"><x-heroicon-m-pencil-square

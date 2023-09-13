@@ -39,7 +39,7 @@ class PostController extends Controller
             $categoryPosts[$category->id] = Post::where('category_id', $category->id)
                 ->with(['author', 'category'])
                 ->latest()
-                ->take(3) // Ambil 3 post dari setiap kategori
+                ->take(3)
                 ->get();
         }
 
@@ -47,8 +47,6 @@ class PostController extends Controller
             'title' => $title,
             'posts' => Post::with(['author', 'category',])->latest()->get(),
             'latestPosts' => $latestPosts,
-            // latest()->filter(request(['search', 'category', 'author']))
-            //     ->paginate(7)->withQueryString()
             'categories' => $categories,
             'categoryPosts' => $categoryPosts,
         ]);

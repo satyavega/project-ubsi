@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $usersWithPostCount = User::where('role', 'user')
-        ->withCount('posts as posts_count') // Menghitung jumlah posting untuk setiap pengguna
+        ->withCount('posts as posts_count')
         ->get();
 
     return view('dashboard.admin.users.index', [

@@ -79,7 +79,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/users/{user:slug}/show', [UserController::class, 'show'])->name('userdetail.show');
     Route::delete('/dashboard/users/{user:slug}', [UserController::class, 'destroy'])->name('user.destroy');
     Route::get('/dashboard/users/{post:slug}/edit', 'DashboardPostController@edit')->name('dashboard.posts.edit');
-    // Route::get('dashboard/users', [UserController::class, 'index']);
 });
 
 Route::get('tentang-kami', function () {
