@@ -1,5 +1,5 @@
     <nav
-        class="navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
+        class=" shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
         <div>
             <a href="/"><img class="rounded w-14" src="images/UBSI_logos.svg" alt="logo BEM BSI"
                     title="logo BEM BSI"></a>
@@ -16,7 +16,7 @@
                 <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'kementrian' ? 'font-bold' : 'text-gray-400' }}"
                         href="kementrian">Kementrian</a></li>
                 <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'artikel' ? 'font-bold' : 'text-gray-400' }}"
-                        href="artikel">Artikel</a></li>
+                        href="news">Artikel</a></li>
                 <li class="md:hidden"><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200"
                         href="kritik-saran">Kritik
                         &

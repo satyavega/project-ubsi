@@ -15,9 +15,9 @@
             <div class="w-20 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
         </div>
         <div>
-            <h1 class="text-5xl md:text-8xl font-extrabold text-bemsun font-sans md:leading-[4rem] text-cyan-500">KABINET
+            <h1 class="text-5xl md:text-8xl font-extrabold font-sans md:leading-[4rem] text-cyan-500">KABINET
             </h1>
-            <h1 class="text-5xl md:text-[75px] font-extrabold text-bemsun font-sans md:leading-[4.5rem] text-cyan-500">
+            <h1 class="text-5xl md:text-[75px] font-extrabold font-sans md:leading-[4.5rem] text-cyan-500">
                 AKUSARAABHINAYA
             </h1>
         </div>

@@ -22,6 +22,7 @@ class PostController extends Controller
         $title = "News";
         $category = request('category');
         $author = request('author');
+        // Error
         $latestPosts = Post::with(['author', 'category'])->latest()->take(4)->get();
         $categories = Category::all();
 
