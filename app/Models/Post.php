@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Spatie\Sluggable\SlugOptions;
-use Spatie\Sluggable\HasSlug;
+use App\Models\User;
+use App\Models\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -26,10 +26,10 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    // public function users()
-    // {
-    //     return $this->belongsTo(User::class, 'user_id');
-    // }
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public function getRouteKeyName()
     {
