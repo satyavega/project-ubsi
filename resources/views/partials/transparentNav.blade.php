@@ -1,7 +1,7 @@
     <nav
         class=" shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
         <div>
-            <a href="/"><img class="rounded w-14" src="images/UBSI_logos.svg" alt="logo BEM BSI"
+            <a href="/"><img class="rounded w-14" src="images/logos/logo-BEM-UBSI-Sukabumi.png" alt="logo BEM BSI"
                     title="logo BEM BSI"></a>
         </div>
         <div

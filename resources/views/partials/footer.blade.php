@@ -1,10 +1,8 @@
 <footer class="footer flex flex-col text-white p-5 mt-10 bg-slate-900">
     <div class="flex flex-row gap-20 border-b w-full pb-5 border-gray-600 max-lg:flex-col max-lg:gap-10">
         <a href="/" class="flex items-center gap-5">
-            <img class="rounded" src="images/UBSI_logos.svg" style="width: 80px" alt="">
-            <span class="flex text-2xl flex-col items-center">UNIVERSITAS <span class="text-sm">BINA SARANA
-                    INFORMATIKA
-                </span></span>
+            <img class="rounded shadow-md" src="images/logos/logo-BEM-UBSI-Sukabumi.png" style="width: 80px" alt="">
+            <span class="flex text-2xl flex-col items-center">BEM UBSI Sukabumi</span>
         </a>
         <div class="flex flex-col gap-5">
             <div class="flex flex-col gap-3">
@@ -26,20 +24,22 @@
             </div>
         </div>
     </div>
-    <div class="w-full px-5 flex flex-col">
-        <div>
-            <div class="flex flex-col gap-3">
-                <h1 class="text-3xl font-semibold">Links</h1>
-                <ul class="text-base font-normal flex flex-col gap-3">
-                    <li><a class="hover:text-cyan-400 transition-all duration-500 ease-in-out" href="/">Home</a>
-                    </li>
-                    <li><a class="hover:text-cyan-400 transition-all duration-500 ease-in-out"
-                            href="pendidikan">Pendidikan</a>
-                    </li>
-                    <li><a class="hover:text-cyan-400 transition-all duration-500 ease-in-out" href="news">News</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="px-5 w-full">
+        <div class="flex flex-col gap-3">
+            <h1 class="text-3xl font-semibold">Follow us!</h1>
+            <ul class="text-base font-normal flex gap-3">
+                <li><a target="_blank" class="hover:text-cyan-400 transition-all duration-500 ease-in-out"
+                        href="https://www.instagram.com/bemubsisukabumi/"><i class="fa-brands fa-instagram fa-xl"></i>
+                    </a>
+                </li>
+                <li><a target="_blank" class="hover:text-cyan-400 transition-all duration-500 ease-in-out"
+                        href="https://m.facebook.com/profile.php/?id=100067185642359"><i
+                            class="fa-brands fa-facebook fa-xl"></i></a>
+                </li>
+                <li><a target="_blank" class="hover:text-cyan-400 transition-all duration-500 ease-in-out"
+                        href="https://twitter.com/ubsi_sukabumi"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+                </li>
+            </ul>
         </div>
     </div>
 </footer>
