@@ -11,12 +11,12 @@
                         href="/">Home</a></li>
                 <li><a class="hover:text-blue-500  transition-all duration-300 ease-in-out {{ request()->segment(1) === 'tentang-kami' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
                         href="tentang-kami">Tentang Kami</a></li>
-                <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'pengurus' ? 'font-bold' : 'text-gray-400' }}"
+                <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'pengurus' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
                         href="pengurus">Pengurus</a></li>
-                <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'kementrian' ? 'font-bold' : 'text-gray-400' }}"
+                <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'kementrian' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
                         href="kementrian">Kementrian</a></li>
-                <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'artikel' ? 'font-bold' : 'text-gray-400' }}"
-                        href="news">Artikel</a></li>
+                <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'artikel' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
+                        href="artikel">Artikel</a></li>
                 <li class="md:hidden"><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200"
                         href="kritik-saran">Kritik
                         &
@@ -39,7 +39,7 @@
                     href="">Fitur</a> --}}
                     <div class="max-md:hidden dropdown dropdown-hover">
                         <label tabindex="0"
-                            class="hover:cursor-pointer flex gap-2 hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'artikel' ? 'font-bold' : 'text-gray-400' }}">Lainnya
+                            class="hover:cursor-pointer flex gap-2 hover:text-blue-500 transition-all duration-300 ease-in-out text-gray-400">Lainnya
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-4 h-7">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />

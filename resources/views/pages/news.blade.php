@@ -1,14 +1,17 @@
 @extends('layouts.main')
-@include('partials.navbar')
-@section('secContainer')
-    <h1 class="text-5xl text-center mb-3">{{ $title }}</h1>
+@section('container')
+    <div class="flex flex-col pt-20">
+        <h1 class="text-4xl md:text-8xl font-bold mb-4">{{ $title }}</h1>
+        <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
+                class="text-black">{{ Str::title($title) }}</span></p>
+    </div>
     @if ($posts->count())
         <div
             class="flex flex-col items-center bg-white border my-10 overflow-hidden border-gray-200 rounded-lg shadow dark:border-gray-700 dark:bg-gray-800">
             @if ($posts[0]->image)
                 <div class="overflow-hidden rounded-md w-full">
                     <img class="object-cover max-h-[450px] w-full shadow-xl rounded-md max-sm:w-11/12"
-                        src="{{ asset($posts[0]->image) }}" alt="{{ $posts[0]->category->name }}">
+                        src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}">
 
                 </div>
             @else
@@ -36,27 +39,16 @@
             </div>
         </div>
         <div class="flex justify-between py-10">
-            <div class="flex gap-3 flex-col">
-                <div class="flex h-fit items-center gap-2">
-                    <h1 class="text-slate-700 text-4xl font-semibold">Berita Terbaru</h1>
-                    <div class="w-60 h-[2px] mt-3 bg-cyan-500"></div>
-                </div>
-                <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
-                        class="text-black">{{ Str::title($title) }}</span></p>
+            <div class="flex h-fit items-center gap-2">
+                <h1 class="text-slate-700 text-4xl font-semibold">Berita Terbaru</h1>
+                <div class="w-60 h-[2px] mt-3 bg-cyan-500"></div>
             </div>
-            <a href="news"
-                class="border-b-2 max-md:hidden border-y-slate-600 hover:text-slate-950 font-semibold hover:border-slate-950 uppercase text-xl gap-1 flex items-center text-slate-600 w-max">lihat
-                berita
-                lainnya
-                <span class="hover:pl-2 duration-150 transition-all ease-in-out">
-                    <x-heroicon-o-arrow-long-right class="w-6 h6" />
-                </span>
-            </a>
         </div>
         <div class="max-md:flex-col flex gap-5">
             <a href="">
                 <div class="w-[550px] bg-red-500 h-72">
-                    <img src="{{ asset($posts[0]->image) }}" class="w-full h-full object-cover" alt="">
+                    <img src="{{ asset('storage/' . $posts[0]->image) }}" class="w-full h-full object-cover"
+                        alt="">
                 </div>
             </a>
             <div class="flex flex-col">
@@ -79,7 +71,8 @@
                 <div class="flex gap-3">
                     <a href="">
                         <div class="bg-transparent w-[300px] h-[150px]">
-                            <img class="object-cover w-full h-full" src="{{ asset($post->image) }}" alt="">
+                            <img class="object-cover w-full h-full" src="{{ asset('storage/' . $post->image) }}"
+                                alt="">
                         </div>
                     </a>
                     <div class="flex flex-col ">
@@ -89,14 +82,15 @@
                         </a>
                         <small>
                             <p class="font-normal mb-2 text-gray-500 text-sm">By: <a class="text-blue-500 hover:underline"
-                                    href="/news?author={{ $post->author->username }}">{{ $post->author->name }}</a> in <a
-                                    href="/news?category={{ $post->category->slug }}"><span
+                                    href="/news?author={{ $post->author->usersname }}">{{ $post->author->username }}</a>
+                                in
+                                <a href="/news?category={{ $post->category->slug }}"><span
                                         class="text-blue-500 hover:underline">{{ $post->category->name }}</span>,</a>
                                 {{ $post->created_at->diffForHumans() }}
                             </p>
                         </small>
-                        <p class="mb-3 text-sm text-gray-700 dark:text-gray-400">
-                            {{ implode(' ', array_slice(explode(' ', strip_tags($post->excerpt)), 0, 15)) }}</p>
+                        {{-- <p class="mb-3 text-sm text-gray-700 dark:text-gray-400">
+                            {{ implode(' ', array_slice(explode(' ', strip_tags($post->excerpt)), 0, 15)) }}</p> --}}
                     </div>
                 </div>
             @endforeach
@@ -117,8 +111,8 @@
                                 <a href="">
                                     <div
                                         class="bg-red-500 w-[150px] h-[100px] {{ $iteration === 0 ? 'w-full h-[200px]' : '' }}">
-                                        <img class="object-cover w-full h-full" src="{{ asset($post->image) }}"
-                                            alt="">
+                                        <img class="object-cover w-full h-full"
+                                            src="{{ asset('storage/' . $post->image) }}" alt="">
                                     </div>
                                 </a>
                                 <div class="flex flex-col">
@@ -130,7 +124,7 @@
                                     <small>
                                         <p class="font-normal text-gray-500 text-xs">
                                             By: <a class="text-blue-500 hover:underline"
-                                                href="/news?author={{ $post->author->username }}">{{ $post->author->name }}</a>
+                                                href="/news?author={{ $post->author->username }}">{{ $post->author->username }}</a>
                                             in <a href="/news?category={{ $post->category->slug }}"><span
                                                     class="text-blue-500 hover:underline">{{ $post->category->name }}</span></a>,
                                             {{ $post->created_at->diffForHumans() }}
@@ -173,7 +167,4 @@
     @else
         <p class="text-xl text-center font-bold">404 Post <span class="text-red-600">Not Found!</span></p>
     @endif
-@endsection
-@section('footer')
-    @include('partials.footer')
 @endsection

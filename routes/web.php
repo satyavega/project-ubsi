@@ -38,7 +38,7 @@ Route::get('pendidikan', function () {
     ]);
 });
 
-Route::get('news', [PostController::class, 'index']);
+Route::get('artikel', [PostController::class, 'index']);
 Route::get('post', [PostController::class, 'index']);
 
 Route::get('news/{post:slug}', [PostController::class, 'show']);
