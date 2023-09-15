@@ -15,9 +15,9 @@
                 </p>
             </small>
             @if ($post->image)
-                <div class="overflow-hidden rounded-md w-full">
-                    <img class="object-cover max-h-[350px] w-full shadow-xl rounded-md max-sm:w-11/12"
-                        src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
+                <div class="carousel aspect-video w-full mt-8 mb-12 rounded-2xl overflow-hidden">
+                    <img class="w-full object-cover" src="{{ asset('storage/' . $post->image) }}"
+                        alt="{{ $post->category->name }}">
                 </div>
             @else
                 <img class="object-cover shadow-xl rounded-md w-full max-sm:w-11/12" src="https://picsum.photos/1200/400"
