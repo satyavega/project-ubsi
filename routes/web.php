@@ -87,5 +87,11 @@ Route::get('tentang-kami', function () {
     ]);
 });
 
+Route::get('pengurus', function () {
+    return view('pages.pengurus', [
+        'title' => 'pengurus'
+    ]);
+});
+
 
 require __DIR__ . '/auth.php';

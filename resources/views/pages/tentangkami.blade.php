@@ -4,7 +4,7 @@
         <div class="flex flex-col gap-5 ">
             <div class="flex gap-3 flex-col">
                 <div class="flex pt-20 flex-row gap-3">
-                    <h1 class="text-slate-700 text-4xl font-semibold">Tentang BEM UBSI Sukabumi</h1>
+                    <h1 class="text-slate-700 text-4xl font-semibold">Tentang BEM AKUSARAABHINAYA</h1>
                     <div class="w-60 h-[2px] mt-5 bg-cyan-500"></div>
                 </div>
                 <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
@@ -35,7 +35,7 @@
                         <div class="hidden sm:block w-32 h-[2px] mt-5 bg-cyan-500"></div>
                         <h1 class="text-5xl md:text-8xl font-extrabold font-sans md:leading-[4rem] text-black">Visi</h1>
                     </div>
-                    <p class="text-sm leading-relaxed font-medium">
+                    <p class="text-sm leading-relaxed font-medium z-10">
                         Mewujudkan BEM UBSI Kota Sukabumi sebagai organisasi "SIIAP" (Solutif, Inovatif, Inspiratif,
                         Aspiratif,
                         Progresif) serta bersinergi dalam peningkatan kualitas mahasiswa
@@ -60,7 +60,7 @@
                             <div class="hidden sm:block w-32 h-[2px] mt-5 bg-cyan-500"></div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-5">
+                    <div class="flex flex-col gap-5 z-10">
                         <p class="text-sm leading-relaxed">
                             1. Menjadikan BEM sebagai mediator universitas dan mahasiswa dalam berkomunikasi dan berdiskusi,
                             juga menampung aspirasi mahasiswa.
