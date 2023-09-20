@@ -3,7 +3,10 @@
     <div class="flex flex-col gap-5 mb-12">
         <div class="flex gap-3 flex-col">
             <div class="flex pt-20 flex-col gap-3">
-                <h1 class="text-black text-5xl font-bold">Anggota BEM Akusaraabhinaya</h1>
+                <div class="flex items-center gap-4">
+                    <h1 class="text-black text-5xl font-bold">Anggota BEM Akusaraabhinaya</h1>
+                    <div class="w-20 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
+                </div>
                 <p class="text-gray-400">*Periode 2023</p>
 
                 {{-- <div class="w-60 h-[2px] mt-5 bg-cyan-500"></div> --}}
@@ -271,7 +274,7 @@
     </div>
     {{-- Kementrian Media Informasi & Teknologi --}}
     <div class="mb-20">
-        <div class="text-lg font-bold mb-8 text-zinc-800">Kementrian <span class="text-cyan-500">Media Informasi &
+        <div class="text-2xl font-bold mb-8 text-zinc-800">Kementrian <span class="text-cyan-500">Media Informasi &
                 Teknologi</span>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-y-20">

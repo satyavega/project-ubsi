@@ -1,7 +1,10 @@
 @extends('layouts.main')
 @section('container')
     <div class="flex flex-col pt-20">
-        <h1 class="text-4xl md:text-8xl font-bold mb-4">{{ $title }}</h1>
+        <div class="flex items-center gap-4">
+            <h1 class="text-4xl md:text-8xl font-bold mb-4">{{ $title }}</h1>
+            <div class="w-20 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
+        </div>
         <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
                 class="text-black">{{ Str::title($title) }}</span></p>
     </div>
