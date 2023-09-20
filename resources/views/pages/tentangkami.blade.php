@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('container')
-    <section class="min-h-[60vh] md:min-h-screen flex flex-col pt-44">
+    <section class="min-h-[60vh] md:min-h-screen flex flex-col">
         <div class="flex flex-col gap-5 ">
-            <div class="flex gap-3 flex-col">
-                <div class="flex pt-20 flex-row gap-3">
-                    <h1 class="text-slate-700 text-4xl font-semibold">Tentang BEM AKUSARAABHINAYA</h1>
-                    <div class="w-60 h-[2px] mt-5 bg-cyan-500"></div>
+            <div class="flex gap-3 flex-col pt-20">
+                <div class="flex items-center gap-4">
+                    <h1 class="text-black text-5xl font-bold">Tentang BEM Akusaraabhinaya</h1>
+                    <div class="w-20 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
                 </div>
                 <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
                         class="text-black">{{ Str::title($title) }}</span></p>
