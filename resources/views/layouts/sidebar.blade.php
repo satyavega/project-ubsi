@@ -69,6 +69,14 @@
                             </li>
                             <li>
                                 <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
+                            {{ Request::is('dashboard/logos*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
+                                    href="/dashboard/logos">
+                                    <x-feathericon-grid />
+                                    <span class="mx-3">Post Logos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center px-6 py-3 hover:bg-gray-700 hover:text-gray-100
                             {{ Request::is('dashboard/users*') ? 'bg-gray-700 text-gray-100' : 'text-gray-500' }}"
                                     href="/dashboard/users">
                                     <x-feathericon-user />

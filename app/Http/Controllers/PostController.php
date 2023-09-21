@@ -9,6 +9,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\PostTag;
 use App\Models\User;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 
 
@@ -19,6 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        $logos = Logo::all();
         $title = "News";
         $category = request('category');
         $author = request('author');
@@ -43,7 +45,7 @@ class PostController extends Controller
                 ->get();
         }
 
-        return view('pages.news', [
+        return view('pages.news', compact('logos'), [
             'title' => $title,
             'posts' => Post::with(['author', 'category',])->latest()->get(),
             'latestPosts' => $latestPosts,
@@ -75,7 +77,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('pages.post', [
+        $logos = Logo::all();
+
+        return view('pages.post',compact('logos'), [
             "title" => "Single Post",
             "post" => $post
         ]);

@@ -61,7 +61,7 @@
             </script>
             <ul class="flex items-center text-xl">
                 <li><a class="hover:text-gray-300 hover:bg-slate-800 rounded px-3 py-2 flex gap-[2px] flex-row"
-                        href="/login">
+                        href="{{ route('admin.login') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-8">
                             <title>Login</title>

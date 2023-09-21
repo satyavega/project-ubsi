@@ -2,28 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\Post;
-use App\Models\Category;
 use Illuminate\Http\Request;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Str;
-use App\Models\User;
-use App\Models\Logo;
-use App\Models\Tag;
-class HomeController extends Controller
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Post $post)
+    public function index()
     {
-        $logos = Logo::all();
-            return view('pages.home', compact('logos'), [
-                'posts' => $post::take(4)->get(),
-                'title' => 'Home'
-            ]);
+        //
     }
 
     /**
@@ -45,7 +33,7 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(string $id)
     {
         //
     }
@@ -53,7 +41,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(string $id)
     {
         //
     }
@@ -61,7 +49,7 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -69,8 +57,13 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(string $id)
     {
         //
+    }
+    public function AdminLogin(){
+
+        return view('auth.login');
+
     }
 }

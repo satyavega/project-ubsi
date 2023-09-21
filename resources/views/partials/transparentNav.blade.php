@@ -1,8 +1,10 @@
     <nav
         class=" shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
         <div>
-            <a href="/"><img class="rounded w-14" src="images/logos/logo-BEM-UBSI-Sukabumi.png" alt="logo BEM BSI"
-                    title="logo BEM BSI"></a>
+            @foreach ($logos as $logo)
+                <a href="/"><img class="rounded w-14" src="{{ asset('storage/' . $logo->image) }}" alt="logo BEM BSI"
+                        title="logo BEM BSI"></a>
+            @endforeach
         </div>
         <div
             class="max-md:bg-white/75 max-md:backdrop-blur-lg nav-links hidden absolute md:static md:min-h-fit md:w-fit items-start min-h-screen md:flex w-screen top-[90px] left-0">
@@ -58,17 +60,7 @@
                 </li>
             </ul>
         </div>
-        <ul class="flex items-center text-xl max-md:hidden">
-            <li><a class="hover:text-gray-300 transition-all duration-300 ease-in-out hover:bg-blue-600 rounded px-3 py-2 flex gap-[2px] flex-row"
-                    href="/login">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-8">
-                        <title>Login</title>
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                    </svg>
-                </a></li>
-        </ul>
+
         <button class="hidden max-md:block">
             <x-heroicon-m-bars-3-bottom-right class="w-6 h-7 cursor-pointer md:hidden burger" name="menu"
                 onclick="onToggleMenu()" />

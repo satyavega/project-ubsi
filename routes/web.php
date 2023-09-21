@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LogoController;
 use App\Http\Controllers\UserController;
 use App\Models\Post;
 use App\Models\User;
@@ -69,6 +70,8 @@ Route::view('struktur-organisasi', 'pages.organisasi', ['title' => 'Organisasi']
 Route::view('proker-organisasi', 'pages.prokerOrganisasi', ['title' => 'Proker Organisasi']);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    //logo
+    Route::resource('/dashboard/logos', LogoController::class, ['except' => ['show','delete','edit']]);
     //category
     Route::resource('/dashboard/categories', AdminCategoryController::class, ['except' => ['show']]);
     Route::get('/dashboard/categories/{category:slug}/edit', [AdminCategoryController::class, 'edit'])->name('category.edit');
