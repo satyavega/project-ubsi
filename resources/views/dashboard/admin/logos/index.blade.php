@@ -34,6 +34,7 @@
                 class="btn hover:bg-blue-800 bg-blue-500 mb-5 px-4 rounded-lg active:border-2 border-blue-800 border-opacity-70 text-white text-lg">Create
                 new
                 logo</a>
+            @include('partials.tableLogo')
     </main>
 @endsection
 @endsection

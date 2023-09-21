@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Logo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\RedirectResponse;
 
 
@@ -16,6 +17,7 @@ class LogoController extends Controller
     {
         return view('dashboard.admin.logos.index', [
             'title' => 'Dashboard',
+            'logos' => Logo::all(),
         ]);
     }
 
@@ -26,6 +28,7 @@ class LogoController extends Controller
     {
         return view('dashboard.admin.logos.create', [
             'title' => 'Create logo',
+            'logos' => Logo::all(),
         ]);
     }
 
@@ -81,6 +84,12 @@ class LogoController extends Controller
      */
     public function destroy(Logo $logo)
     {
-        //
+        if ($logo->image) {
+            Storage::delete($logo->image);
+        }
+
+        Logo::destroy($logo->id);
+
+        return redirect('/dashboard/logos')->with('success', 'Logo has been deleted!');
     }
 }
