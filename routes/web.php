@@ -90,5 +90,23 @@ Route::get('tentang-kami', function () {
     ]);
 });
 
+Route::get('pengurus', function () {
+    return view('pages.pengurus', [
+        'title' => 'pengurus'
+    ]);
+});
+
+Route::get('kementrian', function () {
+    return view('pages.kementrian', [
+        'title' => 'kementrian'
+    ]);
+});
+
+Route::get('kementrian/sekretaris', function () {
+    return view('pages.kementrian.sekretaris', [
+        'title' => 'Sekretaris'
+    ]);
+});
+
 
 require __DIR__ . '/auth.php';
