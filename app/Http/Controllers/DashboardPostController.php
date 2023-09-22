@@ -43,7 +43,7 @@ class DashboardPostController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
-            'title' => 'required|min:8|max:50',
+            'title' => 'required|min:8|max:255',
             'slug' => '',
             'excerpt' => 'required|min:8',
             'body' => 'required',

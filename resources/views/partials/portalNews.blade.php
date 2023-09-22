@@ -95,12 +95,13 @@
                 </div>
                 <div class="flex flex-col gap-5">
                     <div class="">
-                        <h1 class="font-semibold group-hover:text-blue-500 transition-all duration-500 ease-in-out">
-                            {{ $posts[0]->title }}</h1>
-                        <h4 class="font-medium text-gray-400 text-justify">{{ $posts[0]->category->name }}
+                        <h5
+                            class="text-lg md:text-xl font-bold mb-2 group-hover:text-blue-500 transition-all duration-500 ease-in-out">
+                            {{ $post->title }}</h5>
+                        <h4 class="font-medium text-sm text-gray-400 text-justify">{{ $post->category->name }}
                         </h4>
                     </div>
-                    <p class="text-justify">{{ $posts[0]->excerpt }}</p>
+                    <p class="text-justify">{{ $post->excerpt }}</p>
                 </div>
             </a>
         @endforeach
