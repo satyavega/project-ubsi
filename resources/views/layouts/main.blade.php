@@ -14,7 +14,7 @@
 <body>
     @include('partials.transparentNav')
 
-    <div class="px-28 overflow-hidden">
+    <div class="lg:px-28 md:px-16 px-5 overflow-hidden">
         @yield('container')
     </div>
     @include('partials.footer')

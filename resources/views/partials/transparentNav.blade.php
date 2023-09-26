@@ -1,5 +1,5 @@
     <nav
-        class=" shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
+        class="shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
         <div>
             @foreach ($logos as $logo)
                 <a href="/"><img class="rounded w-14" src="{{ asset('storage/' . $logo->image) }}" alt="logo BEM BSI"
@@ -7,8 +7,8 @@
             @endforeach
         </div>
         <div
-            class="max-md:bg-white/75 max-md:backdrop-blur-lg nav-links hidden absolute md:static md:min-h-fit md:w-fit items-start min-h-screen md:flex w-screen top-[90px] left-0">
-            <ul class="flex max-md:pl-10 gap-5 md:text-base text-xl md:flex-row flex-col">
+            class="max-md:bg-white/75 max-md:backdrop-blur-lg nav-links hidden absolute md:static md:min-h-fit md:w-fit items-start min-h-screen md:flex w-screen top-[60px] left-0 z-50">
+            <ul class="flex max-md:pl-10 gap-5 md:text-base text-md md:flex-row flex-col">
                 <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ $title === 'Home' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
                         href="/">Home</a></li>
                 <li><a class="hover:text-blue-500  transition-all duration-300 ease-in-out {{ request()->segment(1) === 'tentang-kami' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
@@ -27,18 +27,14 @@
                 <li class="md:hidden"><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200" href="/">Item
                         2</a>
                 </li>
-                <li class="md:hidden  bg-blue-500 px-3 py-1 transition-all duration-300 ease-in-out rounded w-fit"><a
-                        class="text-gray-50 flex gap-[2px] flex-row" href="/login">Login
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-8">
-                            <title>Login</title>
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                        </svg>
-                    </a></li>
+                <li class="md:hidden transition-all duration-300 ease-in-out w-fit">
+                    <button class="text-gray-50 flex gap-[2px] flex-row">
+                        <i class="fa-solid fa-magnifying-glass fa-xl text-cyan-500 hover:text-cyan-700">
+                            {{-- <title>Seacrh</title> --}}
+                        </i><span>Cari</span>
+                    </button>
+                </li>
                 <li>
-                    {{-- <a class="hover:text-blue-500 transition-all duration-300 ease-in-out  {{ request()->segment(1) === 'belum ada nih dik' ? 'bg-blue-700 text-white p-3 rounded-lg' : 'text-gray-400' }}"
-                    href="">Fitur</a> --}}
                     <div class="max-md:hidden dropdown dropdown-hover">
                         <label tabindex="0"
                             class="hover:cursor-pointer flex gap-2 hover:text-blue-500 transition-all duration-300 ease-in-out text-gray-400">Lainnya
@@ -60,6 +56,9 @@
                 </li>
             </ul>
         </div>
+        <button>
+            <i class="fa-solid fa-magnifying-glass fa-xl hidden lg:block text-cyan-500 hover:text-cyan-700"></i>
+        </button>
 
         <button class="hidden max-md:block">
             <x-heroicon-m-bars-3-bottom-right class="w-6 h-7 cursor-pointer md:hidden burger" name="menu"
@@ -74,12 +73,6 @@
         const navLinks = document.querySelector('.nav-links');
 
         function onToggleMenu() {
-            // const burgerIcon = document.querySelector('x-heroicon-m-menu');
-            // const xIcon = document.querySelector('x-heroicon-o-x');
-
-            // burgerIcon.classList.toggle('hidden');
-            // xIcon.classList.toggle('hidden');
-            // navLinks.classList.toggle('top-[72px]');
             burger.classList.toggle('hidden')
             close.classList.toggle('hidden')
             navLinks.classList.toggle('hidden')

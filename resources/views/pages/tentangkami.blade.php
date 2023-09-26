@@ -4,13 +4,15 @@
         <div class="flex flex-col gap-5 ">
             <div class="flex gap-3 flex-col pt-20">
                 <div class="flex items-center gap-4">
-                    <h1 class="text-black text-5xl font-bold">Tentang BEM Akusaraabhinaya</h1>
-                    <div class="w-20 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
+                    <h1 class="text-black text-5xl max-sm:text-3xl max-md:text-4xl font-bold">Tentang BEM Akusaraabhinaya
+                    </h1>
+                    <div class="w-20 h-[2px] mt-3 bg-cyan-500 lg:w-36 md:w-28 max-lg:hidden"></div>
                 </div>
                 <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
                         class="text-black">{{ Str::title($title) }}</span></p>
             </div>
-            <p class="text-xl leading-8 text-gray-500 font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p class="sm:text-xl leading-snug text-gray-500 font-normal">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit.
                 Perferendis
                 facere esse
                 tenetur commodi, velit quo
@@ -30,12 +32,14 @@
                     1px 1px 0 #06B6D4;">
                         Visi</div>
                 </div>
-                <div class="flex gap-10 lg:flex-row-reverse flex-col">
+                <div class="flex gap-5 lg:gap-10 lg:flex-row-reverse flex-col">
                     <div class="flex items-center gap-3 justify-end">
                         <div class="hidden sm:block w-32 h-[2px] mt-5 bg-cyan-500"></div>
-                        <h1 class="text-5xl md:text-8xl font-extrabold font-sans md:leading-[4rem] text-black">Visi</h1>
+                        <h1 class="text-5xl md:text-8xl font-extrabold font-sans md:leading-[4rem] max-sm:pr-5 text-black">
+                            Visi
+                        </h1>
                     </div>
-                    <p class="text-sm leading-relaxed font-medium z-10">
+                    <p class="text-sm max-sm:pl-5 leading-relaxed font-medium z-10 text-shadow-lg shadow-slate-400">
                         Mewujudkan BEM UBSI Kota Sukabumi sebagai organisasi "SIIAP" (Solutif, Inovatif, Inspiratif,
                         Aspiratif,
                         Progresif) serta bersinergi dalam peningkatan kualitas mahasiswa
@@ -53,26 +57,28 @@
                 1px 1px 0 #06B6D4;">
                         Misi</div>
                 </div>
-                <div class="flex gap-10 flex-col lg:flex-row">
+                <div class="flex lg:gap-10 gap-5 flex-col lg:flex-row">
                     <div>
                         <div class="flex items-center gap-3">
-                            <h1 class="text-5xl md:text-8xl font-extrabold font-sans md:leading-[4rem] text-black">Misi</h1>
+                            <h1
+                                class="text-5xl md:text-8xl font-extrabold font-sans md:leading-[4rem] max-sm:pl-12 text-black">
+                                Misi</h1>
                             <div class="hidden sm:block w-32 h-[2px] mt-5 bg-cyan-500"></div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-5 z-10">
-                        <p class="text-sm leading-relaxed">
+                    <div class="flex flex-col gap-3 z-10 max-sm:px-12">
+                        <p class="text-sm font-medium leading-snug text-shadow-lg shadow-slate-400">
                             1. Menjadikan BEM sebagai mediator universitas dan mahasiswa dalam berkomunikasi dan berdiskusi,
                             juga menampung aspirasi mahasiswa.
                         </p>
-                        <p class="text-sm leading-relaxed">
+                        <p class="text-sm font-medium leading-snug text-shadow-lg shadow-slate-400">
                             2. Menjalin komunikasi yang harmonis dengan ORMAWA secara internal maupun eksternal guna
                             mewujudkan visi misi BEM dan juga visi misi ORMAWA.
                         </p>
-                        <p class="text-sm leading-relaxed">
+                        <p class="text-sm font-medium leading-snug text-shadow-lg shadow-slate-400">
                             3. Memberikan wadah dalam mengembangkan kualitas minat dan bakat mahasiswa.
                         </p>
-                        <p class="text-sm leading-relaxed">
+                        <p class="text-sm font-medium leading-snug text-shadow-lg shadow-slate-400">
                             4. Mengamalkan tri darma perguruan tinggi.
                         </p>
                     </div>
