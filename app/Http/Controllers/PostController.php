@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\UserController;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Http\Requests\StorePostRequest;
@@ -84,20 +85,33 @@ class PostController extends Controller
             "post" => $post
         ]);
     }
+    /**
+     * menampilkan postingan berdasarkan kategori
+     */
     public function getPostsByCategory(Category $category)
     {
+        $logos = Logo::all();
         $posts = $category->posts;
-        $posts = Post::where('category_id', $category->id)->get();
-        return view('pages.news.category', compact('posts','category'));
+
+        return view('pages.news.category', compact('posts', 'category'), [
+            "title" => "Category Posts",
+        ]);
     }
-    
-    public function getPostsByUser(User $author)
+    /**
+     * menampilkan postingan berdasarkan user
+     */
+
+    public function getPostsByUser(User $user)
     {
-        $posts = $author->posts;
-        // $posts = Post::where('user_id', $user->id)->get();
-        return view('posts.index', compact('posts'));
+        $logos = Logo::all();
+        $posts = $user->posts;
+
+        return view('pages.news.user', compact('posts','user'), [
+            "title" => "User Posts",
+        ]);
     }
-    
+
+
     /**
      * Show the form for editing the specified resource.
      */

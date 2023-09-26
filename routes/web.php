@@ -44,7 +44,7 @@ Route::get('news', [PostController::class, 'index']);
 Route::get('post', [PostController::class, 'index']);
 
 Route::get('news/{post:slug}', [PostController::class, 'show']);
-Route::get('/user/{slug}', 'UserController@show')->name('user.show');
+// Route::get('/user/{slug}', 'UserController@show')->name('user.show');
 
 
 Route::get('categories', [CategoryController::class, 'index']);
@@ -114,8 +114,10 @@ Route::get('kementrian/sekretaris', function () {
         'logos' => Logo::all()
     ]);
 });
-Route::get('category/{category:slug}', PostController::class, 'getPostsByCategory')->name('categories.posts');
-Route::get('user/{user:slug}', 'PostController@getPostsByUser')->name('users.posts');
+Route::get('category/{category:slug}', [PostController::class, 'getPostsByCategory'])->name('categories.posts');
+Route::get('user/{user:slug}', [PostController::class, 'getPostsByUser'])->name('users.posts');
+// Route::get('user/{user:slug}', [UserController::class, 'getPostsByUser'])->name('users.posts');
+
 
 
 

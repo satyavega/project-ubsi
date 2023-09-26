@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -21,6 +22,18 @@ class UserController extends Controller
         'title' => 'Users',
         'users' => $usersWithPostCount,
     ]);
+    }
+    /**
+     * menampilkan postingan berdasarkan user
+     */
+    public function getPostsByUser(User $author)
+    {
+        $logos = Logo::all();
+        $posts = $author->posts;
+
+        return view('pages.news.user', compact('posts'), [
+            "title" => "User Posts",
+        ]);
     }
 
     /**
