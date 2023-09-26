@@ -4,8 +4,9 @@
         <div class="flex gap-3 flex-col">
             <div class="flex pt-20 flex-col gap-3">
                 <div class="flex items-center gap-4">
-                    <h1 class="text-black text-5xl font-bold">Anggota BEM Akusaraabhinaya</h1>
-                    <div class="w-20 h-[2px] mt-3 bg-cyan-500 max-lg:w-36 max-md:w-screen"></div>
+                    <h1 class="text-black text-5xl max-sm:text-3xl max-md:text-4xl font-bold">Anggota BEM Akusaraabhinaya
+                    </h1>
+                    <div class="w-20 h-[2px] mt-3 bg-cyan-500 lg:w-36 md:w-28 max-lg:hidden"></div>
                 </div>
                 <p class="text-gray-400">*Periode 2023</p>
 
@@ -19,7 +20,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 gap-y-20 mb-20">
         <div class="flex flex-col">
             <div class="overflow-hidden rounded-lg">
-                <img class="w-full h-72 object-cover" src="images/anggota-bem/15200044-mughni-rahmat-alaziz.jpg"
+                <img class="w-full h-48 md:h-72 object-cover" src="images/anggota-bem/15200044-mughni-rahmat-alaziz.jpg"
                     alt="Ketua BEM AKUSARAABHINAYA">
             </div>
             <div class="my-4">
@@ -29,7 +30,7 @@
         </div>
         <div class="flex flex-col">
             <div class="overflow-hidden rounded-lg">
-                <img class="w-full h-72 object-cover" src="images/anggota-bem/15200214-abdul-kholik.jpg"
+                <img class="w-full h-48 md:h-72 object-cover" src="images/anggota-bem/15200214-abdul-kholik.jpg"
                     alt="Wakil Ketua BEM AKUSARAABHINAYA">
             </div>
             <div class="my-4">
@@ -42,7 +43,7 @@
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 gap-y-20 mb-20">
         <div class="flex flex-col">
             <div class="overflow-hidden rounded-lg">
-                <img class="w-full h-72 object-cover" src="images/anggota-bem/12211124-airen-natasha.jpg"
+                <img class="w-full h-48 md:h-72 object-cover" src="images/anggota-bem/12211124-airen-natasha.jpg"
                     alt="Sekretaris I BEM AKUSARAABHINAYA">
             </div>
             <div class="my-4">
@@ -52,7 +53,7 @@
         </div>
         <div class="flex flex-col">
             <div class="overflow-hidden rounded-lg">
-                <img class="w-full h-72 object-cover" src="images/anggota-bem/19221161-tiara-rachma-aulia.png"
+                <img class="w-full h-48 md:h-72 object-cover" src="images/anggota-bem/19221161-tiara-rachma-aulia.png"
                     alt="Sekretaris II BEM AKUSARAABHINAYA">
             </div>
             <div class="my-4">
@@ -62,7 +63,7 @@
         </div>
         <div class="flex flex-col">
             <div class="overflow-hidden rounded-lg">
-                <img class="w-full h-72 object-cover" src="images/anggota-bem/19221538-silka-tiara.jpeg"
+                <img class="w-full h-48 md:h-72 object-cover" src="images/anggota-bem/19221538-silka-tiara.jpeg"
                     alt="Bendahara I BEM AKUSARAABHINAYA">
             </div>
             <div class="my-4">
@@ -72,8 +73,8 @@
         </div>
         <div class="flex flex-col">
             <div class="overflow-hidden rounded-lg">
-                <img class="w-full h-72 object-cover" src="images/anggota-bem/19220044-siti-sobiyan-nuzulan-yusup.png"
-                    alt="Bendahara II BEM AKUSARAABHINAYA">
+                <img class="w-full h-48 md:h-72 object-cover"
+                    src="images/anggota-bem/19220044-siti-sobiyan-nuzulan-yusup.png" alt="Bendahara II BEM AKUSARAABHINAYA">
             </div>
             <div class="my-4">
                 <div class="font-bold text-base">Siti Sobiyan Nuzulan Yusup</div>
@@ -87,7 +88,8 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-y-20">
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19200772-muhammad-fadly-nurerwansyah.jpg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/19200772-muhammad-fadly-nurerwansyah.jpg"
                         alt="Koordiantor Menteri Dalam Negeri BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -97,7 +99,8 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19200772-muhammad-fadly-nurerwansyah.jpg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/19200772-muhammad-fadly-nurerwansyah.jpg"
                         alt="Sekretaris II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -108,7 +111,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19221258-mela-wati.png"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19221258-mela-wati.png"
                         alt="Bendahara I BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -119,7 +122,8 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/15210236-muhammad-abdul-aziz-albar.jpg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/15210236-muhammad-abdul-aziz-albar.jpg"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -130,7 +134,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19221453-adelia-trimarta.png"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19221453-adelia-trimarta.png"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -148,7 +152,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-y-20">
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/15210278-m-diki-ramlan.jpg"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/15210278-m-diki-ramlan.jpg"
                         alt="Koordiantor Menteri Dalam Negeri BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -158,7 +162,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19220672-figur-ruzikna.png"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19220672-figur-ruzikna.png"
                         alt="Sekretaris II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -169,7 +173,8 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/15210289-febrianetyo-bwanaputera.jpeg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/15210289-febrianetyo-bwanaputera.jpeg"
                         alt="Bendahara I BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -180,7 +185,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/15210237-dede-kurnia.jpg"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/15210237-dede-kurnia.jpg"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -190,7 +195,8 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19220258-m-fajri-mukti-alfaruk.jpeg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/19220258-m-fajri-mukti-alfaruk.jpeg"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -208,7 +214,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-y-20">
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19210702-adam-satriany.png"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19210702-adam-satriany.png"
                         alt="Koordiantor Menteri Dalam Negeri BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -219,7 +225,8 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19221233-darryl-hannan-hondo.jpeg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/19221233-darryl-hannan-hondo.jpeg"
                         alt="Sekretaris II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -230,7 +237,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover"
+                    <img class="w-full h-44 md:h-56 object-cover"
                         src="images/anggota-bem/19220283-muhammad-revanza-adhitama-hend.jpeg"
                         alt="Bendahara I BEM AKUSARAABHINAYA">
                 </div>
@@ -242,7 +249,8 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19200525-fikri-muhammad-fajrie.jpg"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/19200525-fikri-muhammad-fajrie.jpg"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -252,7 +260,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19221018-dita-putri-yuniar.png"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19221018-dita-putri-yuniar.png"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -262,7 +270,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19221467-sholah-faridudin.png"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19221467-sholah-faridudin.png"
                         alt="Bendahara II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -280,7 +288,8 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 gap-y-20">
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/12210725-rikhsan-rieslye-rismansyah.png"
+                    <img class="w-full h-44 md:h-56 object-cover"
+                        src="images/anggota-bem/12210725-rikhsan-rieslye-rismansyah.png"
                         alt="Koordiantor Menteri Dalam Negeri BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -291,7 +300,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/19221509-arya-m-wijaya.jpeg"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/19221509-arya-m-wijaya.jpeg"
                         alt="Sekretaris II BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">
@@ -302,7 +311,7 @@
             </div>
             <div class="flex flex-col">
                 <div class="overflow-hidden rounded-lg">
-                    <img class="w-full h-56 object-cover" src="images/anggota-bem/15220822-saugi-ramdan.jpeg"
+                    <img class="w-full h-44 md:h-56 object-cover" src="images/anggota-bem/15220822-saugi-ramdan.jpeg"
                         alt="Bendahara I BEM AKUSARAABHINAYA">
                 </div>
                 <div class="my-4">

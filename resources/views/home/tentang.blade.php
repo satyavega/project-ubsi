@@ -1,11 +1,10 @@
 <div class="container flex flex-col md:flex-row flex-wrap px-4 md:gap-4">
-    <div class="flex-1 flex justify-center pl-4">
-        <div class="block m-auto min-w-[12rem]">
-            <img src="images/logos/logo-BEM-UBSI-Sukabumi.png" alt="">
-        </div>
+    <div class="flex-1 flex justify-center items-center w-full">
+        <img class="w-52 md:w-72" src="images/logos/logo-BEM-UBSI-Sukabumi.png" alt="">
     </div>
     <div class="flex-1 flex flex-col justify-center mt-8 md:mt-0">
-        <h1 class="font-bold text-4xl">Tentang <span class="text-cyan-500">Kabinet Akusaraabhinaya</span></h1>
+        <h1 class="font-bold text-2xl sm:text-3xl md:text-4xl">Tentang <span class="text-cyan-500">Kabinet
+                Akusaraabhinaya</span></h1>
         <p class="text-sm my-6 text-justify">Mahasiswa bukan sebagai pengamat dalam peran ini, namun mahasiswa juga
             dituntut sebagai pelaku dalam masyarakat, karena tidak bisa dipungkiri bahwa mahasiswa merupakan bagian
             masyarakat. Idealnya, mahasiswa menjadi panutan dalam masyarakat, berlandaskan dengan pengetahuannya,

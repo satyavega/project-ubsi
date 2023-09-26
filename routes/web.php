@@ -11,6 +11,7 @@ use App\Http\Controllers\LogoController;
 use App\Http\Controllers\UserController;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Logo;
 use Illuminate\Support\Facades\Route;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use GuzzleHttp\Middleware;
@@ -86,25 +87,31 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::get('tentang-kami', function () {
     return view('pages.tentangkami', [
-        'title' => 'tentang kami'
+        'title' => 'tentang kami',
+        'logos' => Logo::all()
+
     ]);
 });
 
 Route::get('pengurus', function () {
     return view('pages.pengurus', [
-        'title' => 'pengurus'
+        'title' => 'pengurus',
+        'logos' => Logo::all()
+
     ]);
 });
 
 Route::get('kementrian', function () {
     return view('pages.kementrian', [
-        'title' => 'kementrian'
+        'title' => 'kementrian',
+        'logos' => Logo::all()
     ]);
 });
 
 Route::get('kementrian/sekretaris', function () {
     return view('pages.kementrian.sekretaris', [
-        'title' => 'Sekretaris'
+        'title' => 'Sekretaris',
+        'logos' => Logo::all()
     ]);
 });
 
