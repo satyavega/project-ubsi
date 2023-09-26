@@ -84,7 +84,20 @@ class PostController extends Controller
             "post" => $post
         ]);
     }
-
+    public function getPostsByCategory(Category $category)
+    {
+        $posts = $category->posts;
+        $posts = Post::where('category_id', $category->id)->get();
+        return view('pages.news.category', compact('posts','category'));
+    }
+    
+    public function getPostsByUser(User $author)
+    {
+        $posts = $author->posts;
+        // $posts = Post::where('user_id', $user->id)->get();
+        return view('posts.index', compact('posts'));
+    }
+    
     /**
      * Show the form for editing the specified resource.
      */

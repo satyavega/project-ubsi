@@ -114,6 +114,9 @@ Route::get('kementrian/sekretaris', function () {
         'logos' => Logo::all()
     ]);
 });
+Route::get('category/{category:slug}', PostController::class, 'getPostsByCategory')->name('categories.posts');
+Route::get('user/{user:slug}', 'PostController@getPostsByUser')->name('users.posts');
+
 
 
 require __DIR__ . '/auth.php';

@@ -1,10 +1,10 @@
     <nav
         class="shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
         <div>
-            @foreach ($logos as $logo)
+            <!-- @foreach ($logos as $logo)
                 <a href="/"><img class="rounded w-14" src="{{ asset('storage/' . $logo->image) }}" alt="logo BEM BSI"
                         title="logo BEM BSI"></a>
-            @endforeach
+            @endforeach -->
         </div>
         <div
             class="max-md:bg-white/75 max-md:backdrop-blur-lg nav-links hidden absolute md:static md:min-h-fit md:w-fit items-start min-h-screen md:flex w-screen top-[60px] left-0 z-50">
