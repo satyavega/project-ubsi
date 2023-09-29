@@ -28,7 +28,8 @@
                     {!! $post->body !!}
                 </p>
             </div>
-            <a href="/news">Back to News</a>
+            <a class="btn capitalize bg-blue-500 hover:bg-blue-600 px-4 py-2 text-white rounded max-w-max aos-init aos-animate"
+                href="/news">Kembali ke News</a>
         </div>
     </div>
 @endsection

@@ -26,15 +26,9 @@
                     </button>
                 </form>
             </div>
-            @php
-                $imagePath = '';
-            @endphp
-            @php
-                $imagePath = public_path('posts/' . $post->image);
-            @endphp
             @if ($post->image)
-                <div class="overflow-hidden rounded-md w-full">
-                    <img class="object-cover max-h-[450px] w-full shadow-xl rounded-md max-sm:w-11/12"
+                <div class="">
+                    <img class="w-full img-preview aspect-video mb-4 object-cover rounded-2xl overflow-hidden bg-black/30"
                         src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
                 </div>
             @else

@@ -21,6 +21,8 @@ class UserController extends Controller
     return view('dashboard.admin.users.index', [
         'title' => 'Users',
         'users' => $usersWithPostCount,
+        'logos' => Logo::all()
+
     ]);
     }
     /**
@@ -28,11 +30,12 @@ class UserController extends Controller
      */
     public function getPostsByUser(User $author)
     {
-        $logos = Logo::all();
         $posts = $author->posts;
 
         return view('pages.news.user', compact('posts'), [
             "title" => "User Posts",
+            'logos' => Logo::all()
+
         ]);
     }
 

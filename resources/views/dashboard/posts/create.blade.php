@@ -71,7 +71,8 @@
                 </div>
                 <div class="mb-6">
                     <label for="image" class="block mb-2 text-lg font-medium text-gray-700">Image</label>
-                    <img class="img-preview w-[50%] h-[150px] mb-5 hidden object-contain" alt="">
+                    <img class="w-full img-preview aspect-video mb-4 object-cover rounded-2xl overflow-hidden bg-black/30"
+                        alt="">
                     <input type="file" id="image" name="image"
                         class="file:active:bg-gray-400 border file:ring-blue-500 file:bg-gray-300 file:px-2 file:rounded-lg file:border-0 file:active:border-blue-500 file:focus:border-blue-500 cursor-pointer file:cursor-pointer active:border-blue-500 focus:border-blue-500 border-gray-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 bg-transparent @error('title')
                             invalid:border-red-500 invalid:text-pink-600 invalid:focus:border-pink-500 invalid:focus:ring-pink-500

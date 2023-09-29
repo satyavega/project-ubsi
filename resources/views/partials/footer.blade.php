@@ -1,14 +1,11 @@
 <footer class="footer flex flex-col text-white p-5 mt-10 bg-slate-900">
     <div class="flex flex-row gap-20 border-b w-full pb-5 border-gray-600 max-lg:flex-col max-lg:gap-10">
-        {{-- @foreach ($logos as $logo)
+        @foreach ($logos as $logo)
             <a class="flex items-center gap-5" href="/"><img class="rounded w-20"
                     src="{{ asset('storage/' . $logo->image) }}" alt="logo BEM BSI" title="logo BEM BSI">
                 <span class="flex text-2xl flex-col items-center">BEM UBSI Sukabumi</span>
             </a>
-        @endforeach --}}
-        {{-- <a href="/" class="flex items-center gap-5">
-            <img class="rounded shadow-md" src="images/logos/logo-BEM-UBSI-Sukabumi.png" style="width: 80px" alt="">
-        </a> --}}
+        @endforeach
         <div class="flex flex-col gap-5">
             <div class="flex flex-col gap-3">
                 <h1 class="text-2xl font-semibold">Alamat</h1>

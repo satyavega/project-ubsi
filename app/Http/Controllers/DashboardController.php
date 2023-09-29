@@ -6,6 +6,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Logo;
+
 class DashboardController extends Controller
 {
     /**
@@ -24,6 +26,8 @@ public function index(Post $post)
         'totalUsers' => $totalUsers,
         'title' => 'Dashboard',
         'totalPosts' => $totalPosts,
+        'logos' => Logo::all()
+
     ]);
 }
 

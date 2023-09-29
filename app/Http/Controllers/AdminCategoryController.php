@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Logo;
+
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 
@@ -21,7 +23,9 @@ class AdminCategoryController extends Controller
         }
         return view('dashboard.admin.categories.index', [
             'categories' => Category::all(),
-            'title' => 'Category Admin'
+            'title' => 'Category Admin',
+        'logos' => Logo::all()
+
         ]);
     }
 
@@ -33,6 +37,9 @@ class AdminCategoryController extends Controller
         return view('dashboard.admin.categories.create', [
             'title' => 'Create Category',
             'categories' => Category::all(),
+        'logos' => Logo::all()
+
+
         ]);
     }
 
@@ -70,7 +77,9 @@ class AdminCategoryController extends Controller
     return view('dashboard.admin.categories.edit', [
         'name' => 'Edit category',
         'category' => $category,
-        'title' => 'Edit Category'
+        'title' => 'Edit Category',
+        'logos' => Logo::all()
+
     ]);
 }
 
