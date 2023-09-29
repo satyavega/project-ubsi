@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Kyslik\ColumnSortable\Sortable;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -57,5 +59,8 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class, 'post_tags','post_id','tag_id');
     }
+    public $sortable = [
+        'title',
+    ];
 
 }

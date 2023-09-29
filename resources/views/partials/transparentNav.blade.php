@@ -1,10 +1,10 @@
     <nav
         class="shadow-md navbar nav flex sticky top-0 bg-white/75 backdrop-blur-lg z-50 justify-around max-md:justify-between max-md:px-10">
         <div>
-            <!-- @foreach ($logos as $logo)
+            @foreach ($logos as $logo)
                 <a href="/"><img class="rounded w-14" src="{{ asset('storage/' . $logo->image) }}" alt="logo BEM BSI"
                         title="logo BEM BSI"></a>
-            @endforeach -->
+            @endforeach
         </div>
         <div
             class="max-md:bg-white/75 max-md:backdrop-blur-lg nav-links hidden absolute md:static md:min-h-fit md:w-fit items-start min-h-screen md:flex w-screen top-[60px] left-0 z-50">
@@ -20,9 +20,7 @@
                 <li><a class="hover:text-blue-500 transition-all duration-300 ease-in-out {{ request()->segment(1) === 'news' ? 'font-bold text-blue-500' : 'text-gray-400' }}"
                         href="/news">News</a></li>
                 <li class="md:hidden"><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200"
-                        href="/kritik-saran">Kritik
-                        &
-                        Saran</a>
+                        href="/kritik-saran">Item 2</a>
                 </li>
                 <li class="md:hidden"><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200" href="/">Item
                         2</a>
@@ -45,9 +43,8 @@
                         </label>
                         <ul tabindex="0"
                             class="dropdown-content z-[1] menu p-2 shadow rounded-box min-w-fit border bg-white backdrop-blur-lg">
-                            <li><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200"
-                                    href="/kritik-saran">Kritik &
-                                    Saran</a>
+                            <li><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200" href="/kritik-saran">Item
+                                    1</a>
                             </li>
                             <li><a class="hover:text-blue-500 text-gray-400 hover:bg-gray-200" href="/">Item 2</a>
                             </li>
@@ -56,9 +53,18 @@
                 </li>
             </ul>
         </div>
-        <button>
-            <i class="fa-solid fa-magnifying-glass fa-xl hidden lg:block text-cyan-500 hover:text-cyan-700"></i>
-        </button>
+
+        <div class="flex items-center sm:gap-1 gap-5">
+            <button>
+                <i id="search-icon"
+                    class="fa-solid fa-magnifying-glass fa-xl hidden lg:block text-cyan-500 hover:text-cyan-700"></i>
+            </button>
+            <form method="GET">
+                <input id="search-input" type="text" name="cari" placeholder="Search"
+                    class="input bg-transparent border mr-5 border-gray-300 input-bordered w-24 md:w-auto"
+                    style="display: none;" value="{{ $cari }}">
+            </form>
+        </div>
 
         <button class="hidden max-md:block">
             <x-heroicon-m-bars-3-bottom-right class="w-6 h-7 cursor-pointer md:hidden burger" name="menu"
@@ -66,7 +72,6 @@
             <x-heroicon-o-x-mark onclick="onToggleMenu()" class="w-6 h-7 cursor-pointer close hidden" />
         </button>
     </nav>
-
     <script>
         const burger = document.querySelector('.burger')
         const close = document.querySelector('.close')
@@ -77,4 +82,31 @@
             close.classList.toggle('hidden')
             navLinks.classList.toggle('hidden')
         }
+        var searchIcon = document.getElementById('search-icon');
+        var searchInput = document.getElementById('search-input');
+
+        searchIcon.addEventListener('mouseenter', function() {
+            searchIcon.style.display = 'none';
+            searchInput.style.display = 'inline-block';
+            searchInput.focus();
+        });
+
+        searchInput.addEventListener('focus', function() {
+            searchIcon.style.display = 'none';
+            searchInput.style.display = 'inline-block';
+        });
+
+        searchInput.addEventListener('blur', function() {
+            if (searchInput.value === '') {
+                searchIcon.style.display = 'inline-block';
+                searchInput.style.display = 'none';
+            }
+        });
+
+        searchInput.addEventListener('mouseleave', function() {
+            if (searchInput.value === '') {
+                searchIcon.style.display = 'inline-block';
+                searchInput.style.display = 'none';
+            }
+        });
     </script>

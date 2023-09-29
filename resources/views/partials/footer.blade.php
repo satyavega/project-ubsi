@@ -6,9 +6,6 @@
                 <span class="flex text-2xl flex-col items-center">BEM UBSI Sukabumi</span>
             </a>
         @endforeach
-        {{-- <a href="/" class="flex items-center gap-5">
-            <img class="rounded shadow-md" src="images/logos/logo-BEM-UBSI-Sukabumi.png" style="width: 80px" alt="">
-        </a> --}}
         <div class="flex flex-col gap-5">
             <div class="flex flex-col gap-3">
                 <h1 class="text-2xl font-semibold">Alamat</h1>

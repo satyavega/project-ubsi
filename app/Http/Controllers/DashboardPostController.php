@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Logo;
 use App\Models\PostTag;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -13,6 +14,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Storage;
+
 
 class DashboardPostController extends Controller
 {
@@ -24,7 +26,9 @@ class DashboardPostController extends Controller
     {
         return view('dashboard.posts.index', [
             'title' => 'Dashboard',
-            'posts' => $post::where('user_id', auth()->user()->id)->get()
+            'posts' => $post::where('user_id', auth()->user()->id)->get(),
+            'logos' => Logo::all()
+
         ]);
     }
 
@@ -36,7 +40,9 @@ class DashboardPostController extends Controller
         return view('dashboard.posts.create', [
             'title' => 'Create post',
             'categories' => Category::all(),
-            'tags' => Tag::all()
+            'tags' => Tag::all(),
+            'logos' => Logo::all()
+
         ]);
     }
 
@@ -93,7 +99,9 @@ class DashboardPostController extends Controller
 
         return view('dashboard.posts.show', [
             'post' => $post,
-            'title' => 'detail post'
+            'title' => 'detail post',
+            'logos' => Logo::all()
+
         ]);
     }
 
@@ -108,7 +116,9 @@ class DashboardPostController extends Controller
                 'title' => 'Edit post',
                 'post' => $post,
                 'categories' => Category::all(),
-                'tags' => Tag::all()
+                'tags' => Tag::all(),
+            'logos' => Logo::all()
+
             ]);
         }
 
@@ -117,7 +127,8 @@ class DashboardPostController extends Controller
                 'title' => 'Edit post',
                 'post' => $post,
                 'categories' => Category::all(),
-                'tags' => Tag::all()
+                'tags' => Tag::all(),
+            'logos' => Logo::all()
             ]);
         }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -20,7 +21,22 @@ class UserController extends Controller
     return view('dashboard.admin.users.index', [
         'title' => 'Users',
         'users' => $usersWithPostCount,
+        'logos' => Logo::all()
+
     ]);
+    }
+    /**
+     * menampilkan postingan berdasarkan user
+     */
+    public function getPostsByUser(User $author)
+    {
+        $posts = $author->posts;
+
+        return view('pages.news.user', compact('posts'), [
+            "title" => "User Posts",
+            'logos' => Logo::all()
+
+        ]);
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Logo;
@@ -40,11 +41,11 @@ Route::get('pendidikan', function () {
     ]);
 });
 
-Route::get('news', [PostController::class, 'index']);
+Route::get('news', [PostController::class, 'index'])->name('posts.index');
 Route::get('post', [PostController::class, 'index']);
 
 Route::get('news/{post:slug}', [PostController::class, 'show']);
-Route::get('/user/{slug}', 'UserController@show')->name('user.show');
+// Route::get('/user/{slug}', 'UserController@show')->name('user.show');
 
 
 Route::get('categories', [CategoryController::class, 'index']);
@@ -85,37 +86,79 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/users/{post:slug}/edit', 'DashboardPostController@edit')->name('dashboard.posts.edit');
 });
 
-Route::get('tentang-kami', function () {
+Route::get('tentang-kami', function (Request $request) {
+    $cari = $request->query('cari');
+    if (!empty($cari)) {
+        $searchResults = Post::where('title', 'like', '%' . $cari . '%')
+            ->paginate(10)
+            ->appends(['cari' => $cari]);
+    } else {
+        $searchResults = null; // Tambahkan ini untuk memastikan variabel ada walaupun tidak ada hasil pencarian
+    }
     return view('pages.tentangkami', [
         'title' => 'tentang kami',
-        'logos' => Logo::all()
+        'logos' => Logo::all(),
+        'cari' => $cari,
+        'posts' => $searchResults ? $searchResults : Post::with(['author', 'category'])->latest()->get(),
 
     ]);
 });
 
-Route::get('pengurus', function () {
+Route::get('pengurus', function (Request $request) {
+    $cari = $request->query('cari');
+    if (!empty($cari)) {
+        $searchResults = Post::where('title', 'like', '%' . $cari . '%')
+            ->paginate(10)
+            ->appends(['cari' => $cari]);
+    } else {
+        $searchResults = null; // Tambahkan ini untuk memastikan variabel ada walaupun tidak ada hasil pencarian
+    }
     return view('pages.pengurus', [
         'title' => 'pengurus',
-        'logos' => Logo::all()
-
+        'logos' => Logo::all(),
+        'cari' => $cari,
+        'posts' => $searchResults ? $searchResults : Post::with(['author', 'category'])->latest()->get(),
     ]);
 });
 
-Route::get('kementrian', function () {
+Route::get('kementrian', function (Request $request) {
+    $cari = $request->query('cari');
+    if (!empty($cari)) {
+        $searchResults = Post::where('title', 'like', '%' . $cari . '%')
+            ->paginate(10)
+            ->appends(['cari' => $cari]);
+    } else {
+        $searchResults = null; // Tambahkan ini untuk memastikan variabel ada walaupun tidak ada hasil pencarian
+    }
     return view('pages.kementrian', [
         'title' => 'kementrian',
-        'logos' => Logo::all()
+        'logos' => Logo::all(),
+        'cari' => $cari,
+        'posts' => $searchResults ? $searchResults : Post::with(['author', 'category'])->latest()->get(),
     ]);
 });
 
-Route::get('kementrian/sekretaris', function () {
+Route::get('kementrian/sekretaris', function (Request $request) {
+    $cari = $request->query('cari');
+    if (!empty($cari)) {
+        $searchResults = Post::where('title', 'like', '%' . $cari . '%')
+            ->paginate(10)
+            ->appends(['cari' => $cari]);
+    } else {
+        $searchResults = null; // Tambahkan ini untuk memastikan variabel ada walaupun tidak ada hasil pencarian
+    }
     return view('pages.kementrian.sekretaris', [
         'title' => 'Sekretaris',
-        'logos' => Logo::all()
+        'logos' => Logo::all(),
+        'cari' => $cari,
+        'posts' => $searchResults ? $searchResults : Post::with(['author', 'category'])->latest()->get(),
     ]);
 });
-Route::get('category/{category:slug}', PostController::class, 'getPostsByCategory')->name('categories.posts');
-Route::get('user/{user:slug}', 'PostController@getPostsByUser')->name('users.posts');
+Route::get('category/{category:slug}', [PostController::class, 'getPostsByCategory'])->name('categories.posts');
+Route::get('user/{user:slug}', [PostController::class, 'getPostsByUser'])->name('users.posts');
+
+// Route::get('user/{user:slug}', [UserController::class, 'getPostsByUser'])->name('users.posts');
+
 
 
 

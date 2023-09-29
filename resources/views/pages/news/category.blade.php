@@ -1,49 +1,51 @@
 @extends('layouts.main')
 @section('container')
-<div class="flex flex-col pt-20">
-    <div class="flex items-center gap-4">
-        <h1 class="text-black text-5xl font-bold">News</h1>
-        <div class="w-20 h-[2px] mt-3 bg-cyan-500 lg:w-36 md:w-28"></div>
-    </div>
-    <p class="text-cyan-500 text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
-            class="text-black">{{ Str::title($title) }}</span></p>
-</div>
-@if ($posts->count())
-    @foreach ($posts as $post)
-    <div class="flex flex-col items-center bg-white border my-10 overflow-hidden border-gray-200 rounded-lg shadow dark:border-gray-700 dark:bg-gray-800">
-        @if ($post->image)
-            <div class="overflow-hidden rounded-md w-full">
-                <img class="object-cover max-h-[450px] w-full shadow-xl rounded-md"
-                    src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
-            </div>
-        @else
-            <img class="object-cover rounded-lg w-full" src="https://picsum.photos/1200/400"
-                alt='{{ $post->category->name }}'>
-        @endif
-        <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a
-                    class="hover:underline" href="/news/{{ $post->slug }}">{{ $post->title }}</a></h5>
-            <small>
-                <p class="font-normal mb-2 text-gray-500 text-sm">By: <a class="text-blue-500 hover:underline"
-                        href="{{ route('users.posts', ['user' => $post->author->slug]) }}">
-                        {{ $post->author->name }}
-                    </a> in <a class="text-blue-500 hover:underline"
-                        href="{{ route('categories.posts', ['category' => $post->category->slug]) }}">
-                        {{ $post->category->name }}
-                    </a>
-                    {{ $post->created_at->diffForHumans() }}
-                </p>
-            </small>
-            <p class="mb-3 font-normal text-gray-300 dark:text-gray-400">{{ $post->excerpt }}</p>
-            <a href="/news/{{ $post->slug }}"
-                class="flex w-max items-center justify-center gap-1 px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <span><x-heroicon-o-arrow-long-right class="w-6 h6" /></span>
-            </a>
+
+    <div class="flex flex-col gap-3 py-20">
+        <div class="flex items-center gap-4">
+            <h1 class="text-black text-3xl md:text-5xl font-bold">{{ $category->name }}</h1>
+            <div class="w-20 h-[2px] mt-3 bg-cyan-500 lg:w-36 md:w-28"></div>
         </div>
+        <p class="text-cyan-500 text-xs md:text-base font-normal"><a class="text-slate-700" href="/">Beranda</a> > <span
+                class="text-black">Category : <span class="font-bold">{{ $category->name }}</span></span></p>
     </div>
-    @endforeach
-@else
-    <p>Tidak ada postingan dalam kategori ini.</p>
-@endif
+    @if ($posts->count())
+        @foreach ($posts as $post)
+            <div class="grid grid-cols-1">
+                <div class="flex flex-col md:flex-row gap-5 mb-10">
+                    <a href="/news/{{ $post->slug }}">
+                        <div class="md:w-[26rem]">
+                            <img src="{{ asset('storage/' . $post->image) }}"
+                                class="w-full aspect-video mb-4 object-cover rounded-2xl overflow-hiddenbg-black/30"
+                                alt="">
+                        </div>
+                    </a>
+                    <div class="flex flex-col">
+                        <a href="/news/{{ $post->slug }}">
+                            <h5
+                                class="text-base leading-tight line-clamp-3 tracking-tight md:line-clamp-2 md:text-lg font-bold group-hover:underline group-hover:text-blue-500 transition-all duration-500 ease-in-out">
+                                {{ $post->title }}</h5>
+                        </a>
+                        <small>
+                            <p class="font-normal mb-2 text-gray-500 text-sm">By: <a class="text-blue-500 hover:underline"
+                                    href="{{ route('users.posts', ['user' => $post->author->slug]) }}">
+                                    {{ $post->author->username }}
+                                </a>
+                                in <a class="text-blue-500 hover:underline"
+                                    href="{{ route('categories.posts', ['category' => $post->category->slug]) }}">
+                                    {{ $post->category->name }}
+                                </a>
+                                {{ $post->created_at->diffForHumans() }}
+                            </p>
+                            <p class="line-clamp-3">
+                                {{ strip_tags($post->body) }}
+                            </p>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @else
+        <p class="text-xl text-center font-bold">404 Post <span class="text-red-600">Not Found!</span></p>
+    @endif
 @endsection

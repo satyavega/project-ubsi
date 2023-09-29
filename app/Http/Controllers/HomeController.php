@@ -17,12 +17,21 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Post $post)
+    public function index(Request $request, Post $post)
     {
+    $cari = $request->query('cari');
+    if (!empty($cari)) {
+        $searchResults = Post::where('title', 'like', '%' . $cari . '%')
+            ->paginate(10)
+            ->appends(['cari' => $cari]);
+    } else {
+        $searchResults = null; // Tambahkan ini untuk memastikan variabel ada walaupun tidak ada hasil pencarian
+    }
         $logos = Logo::all();
             return view('pages.home', compact('logos'), [
                 'posts' => $post::take(4)->get(),
-                'title' => 'Home'
+                'title' => 'Home',
+                'cari' => $cari,
             ]);
     }
 
