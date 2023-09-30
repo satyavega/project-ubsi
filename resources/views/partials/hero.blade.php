@@ -24,5 +24,5 @@
             </h1>
         </div>
     </div>
-    <img class="object-cover h-full w-full overflow-hidden" src="https://picsum.photos/1280/720" alt="">
+    <img class="object-cover h-full w-full overflow-hidden" src="images/anggota-bem/bemubsi.png" alt="">
 </div>
