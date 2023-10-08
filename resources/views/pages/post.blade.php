@@ -8,9 +8,9 @@
             <small>
                 <p class="font-normal inline-flex gap-1 mb-2 text-gray-500 text-sm">By: <a
                         class="text-blue-500 hover:underline"
-                        href="/blog?author={{ $post->author->username }}">{{ $post->author->username }}</a> in <a
-                        class="text-blue-500 hover:underline"
-                        href="/blog?category={{ $post->category->slug }}">{{ $post->category->name }}</a>
+                        href="{{ route('users.posts', ['user' => $post->author->slug]) }}">{{ $post->author->username }}</a>
+                    in <a class="text-blue-500 hover:underline"
+                        href="{{ route('categories.posts', ['category' => $post->category->slug]) }}">{{ $post->category->name }}</a>
                     {{ $post->created_at->diffForHumans() }}
                 </p>
             </small>
