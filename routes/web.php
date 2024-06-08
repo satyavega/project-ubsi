@@ -30,6 +30,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 */
 
 Route::get('/', [HomeController::class , 'index']);
+Route::get('/laravel', [HomeController::class , 'laravel']);
 
 Route::get('pendidikan', function () {
     return view('pages.pendidikan', [

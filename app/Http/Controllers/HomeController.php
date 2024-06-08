@@ -35,6 +35,9 @@ class HomeController extends Controller
             ]);
     }
 
+    public function laravel(){
+        return view('welcome');
+    }
     /**
      * Show the form for creating a new resource.
      */
